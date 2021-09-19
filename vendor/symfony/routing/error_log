@@ -1,0 +1,3 @@
+[08-Mar-2019 03:23:37 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Routing\Matcher\UrlMatcherInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/routing/RouterInterface.php on line 24
+[08-Mar-2019 04:21:32 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Routing\RouteCompilerInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/routing/RouteCompiler.php on line 20
+[08-Mar-2019 10:22:55 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Routing\RouterInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/routing/Router.php on line 34

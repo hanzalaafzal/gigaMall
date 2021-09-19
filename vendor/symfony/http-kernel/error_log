@@ -1,0 +1,4 @@
+[07-Mar-2019 15:00:07 America/New_York] PHP Fatal error:  Class 'Symfony\Component\BrowserKit\Client' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-kernel/Client.php on line 31
+[07-Mar-2019 18:17:48 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\HttpKernel\HttpKernelInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-kernel/KernelInterface.php on line 27
+[07-Mar-2019 21:29:47 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\HttpKernel\KernelInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-kernel/Kernel.php on line 50
+[08-Mar-2019 07:32:28 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\HttpKernel\HttpKernelInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-kernel/HttpKernel.php on line 40

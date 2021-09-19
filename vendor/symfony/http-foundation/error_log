@@ -1,0 +1,10 @@
+[07-Mar-2019 19:25:54 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\ParameterBag' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/ServerBag.php on line 21
+[07-Mar-2019 19:55:37 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\Response' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/JsonResponse.php on line 25
+[07-Mar-2019 20:26:57 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\Response' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/BinaryFileResponse.php on line 26
+[07-Mar-2019 23:31:48 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\RequestMatcher' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/ExpressionRequestMatcher.php on line 21
+[08-Mar-2019 01:02:47 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\Response' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/RedirectResponse.php on line 19
+[08-Mar-2019 03:28:45 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\Response' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/StreamedResponse.php on line 27
+[08-Mar-2019 04:35:35 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\ParameterBag' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/FileBag.php on line 22
+[08-Mar-2019 06:27:14 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\Request' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/ApacheRequest.php on line 19
+[08-Mar-2019 07:18:10 America/New_York] PHP Fatal error:  Class 'Symfony\Component\HttpFoundation\HeaderBag' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/ResponseHeaderBag.php on line 19
+[08-Mar-2019 09:50:25 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\HttpFoundation\RequestMatcherInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/RequestMatcher.php on line 19

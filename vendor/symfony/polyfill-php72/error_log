@@ -1,0 +1,4 @@
+[07-Mar-2019 15:37:31 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Symfony\Polyfill\Php72\Php72' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/polyfill-php72/bootstrap.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/azegiowu/bazaarsy.com/vendor/symfony/polyfill-php72/bootstrap.php on line 29

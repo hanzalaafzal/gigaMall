@@ -1,0 +1,6 @@
+[07-Mar-2019 18:09:35 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Translation\TranslatorInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/DataCollectorTranslator.php on line 22
+[07-Mar-2019 22:12:00 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Translation\MessageCatalogueInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/MessageCatalogue.php on line 20
+[08-Mar-2019 03:06:55 America/New_York] PHP Fatal error:  Interface 'Symfony\Contracts\Translation\LocaleAwareInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/TranslatorInterface.php on line 24
+[08-Mar-2019 04:11:59 America/New_York] PHP Fatal error:  Interface 'Symfony\Contracts\Translation\TranslatorInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/LoggingTranslator.php on line 23
+[08-Mar-2019 05:26:45 America/New_York] PHP Fatal error:  Interface 'Symfony\Component\Translation\TranslatorInterface' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/Translator.php on line 32
+[08-Mar-2019 06:53:51 America/New_York] PHP Fatal error:  Trait 'Symfony\Contracts\Translation\TranslatorTrait' not found in /home/azegiowu/bazaarsy.com/vendor/symfony/translation/IdentityTranslator.php on line 25

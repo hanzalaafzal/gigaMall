@@ -1,0 +1,35 @@
+[01-Feb-2019 07:30:33 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:30:38 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:30:44 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:31:44 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:32:01 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:32:24 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:32:53 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:33:30 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:33:44 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:33:45 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:33:49 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:34:07 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:34:15 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:34:24 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:34:40 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:34:47 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:39:34 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:40:02 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[01-Feb-2019 07:41:39 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 233
+[20-Feb-2019 09:41:04 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\ProductController::edit() in /home/azegiowu/bazaarsy.com/app/Http/Controllers/ProductController.php on line 137
+[22-Feb-2019 13:08:15 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 199233536 bytes) in /home/azegiowu/bazaarsy.com/app/Http/Controllers/GeneralController.php on line 244
+[08-Mar-2019 09:20:04 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:20:04 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:20:08 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 14:20:20 UTC] PHP Parse error:  syntax error, unexpected 'const' (T_CONST), expecting variable (T_VARIABLE) in /home/azegiowu/bazaarsy.com/vendor/symfony/http-foundation/HeaderUtils.php on line 21
+[08-Mar-2019 14:20:20 UTC] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[08-Mar-2019 09:21:10 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:21:21 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:24:51 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:25:20 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:25:35 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:25:38 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[08-Mar-2019 09:25:40 America/New_York] PHP Parse error:  syntax error, unexpected '?' in /home/azegiowu/bazaarsy.com/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[11-Jul-2021 22:43:08 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/bwpflcjfhawi/public_html/app/Http/Controllers/GeneralController.php on line 238
+[11-Jul-2021 22:45:26 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/bwpflcjfhawi/public_html/app/Http/Controllers/GeneralController.php on line 238

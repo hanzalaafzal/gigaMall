@@ -1,0 +1,2 @@
+[07-Mar-2019 06:46:10 America/New_York] PHP Warning:  require(/home/azegiowu/bazaarsy.com/vendor/barryvdh/laravel-cors/vendor/autoload.php): failed to open stream: No such file or directory in /home/azegiowu/bazaarsy.com/vendor/barryvdh/laravel-cors/phpunit.php on line 15
+[07-Mar-2019 06:46:10 America/New_York] PHP Fatal error:  require(): Failed opening required '/home/azegiowu/bazaarsy.com/vendor/barryvdh/laravel-cors/vendor/autoload.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/azegiowu/bazaarsy.com/vendor/barryvdh/laravel-cors/phpunit.php on line 15
