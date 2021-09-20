@@ -26,6 +26,11 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+     public function showLoginForm()
+      {
+          return view('newFrontend.pages.login');
+      }
     protected $redirectTo = '/dashboard';
 
     /**

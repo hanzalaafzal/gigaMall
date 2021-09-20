@@ -25,11 +25,11 @@
                 <form id="login-form" method="POST" action="{{ url('/login') }}">
                     {{ csrf_field() }}
                     <label for="username" class="rl-label">Email</label>
-                    <input type="email" id="username" required="" name="email" value="{{ old('email') }}" placeholder="Enter your email here...">
-                    
+                    <input type="email" id="username" required="" name="email" value="{{ old('email') }}" placeholder="Enter email here...">
+
                     <label for="password" class="rl-label">Password</label>
                     <input type="password" required="" id="password" name="password" placeholder="Enter your password here...">
-                    
+
                     <!-- CHECKBOX -->
                     <input type="checkbox" id="remember" name="remember" checked>
                     <label for="remember" class="label-check">

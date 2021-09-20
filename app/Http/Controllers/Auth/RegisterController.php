@@ -64,6 +64,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+    public function showRegistrationForm(){
+        return view('newFrontend.pages.register');
+    }
+
     protected function create(array $data)
     {
         $status = true;

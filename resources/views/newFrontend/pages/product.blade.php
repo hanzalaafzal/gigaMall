@@ -16,7 +16,22 @@
         <div class="ps-page__container">
             <div class="ps-page__left">
                 <div class="ps-product--detail ps-product--fullwidth">
+
+                  @if(auth()->check() && !isset($affiliator) && auth()->user()->permissions_id == 5)
+                  <div style="text-align:center">
+                      <a onclick="copyToClipboard('#copy')" id="copy" style="color:#ffc107" href="{{url('product/'.$product->slug.'?id='. auth()->user()->id)}}">Click here to get affliate link</a>
+                  </div>
+                  @elseif(isset($affiliator))
+                  <div style="text-align:center">
+                    <h5 style="color:#ffc107">You are referred by: {{$affiliator->user_name}}</h5>
+                  </div>
+
+                  @endif
+
+                  <br>
+                  <br>
                     <div class="ps-product__header">
+
                         <div class="ps-product__thumbnail" data-vertical="true">
                             <figure>
                                 <div class="ps-wrapper">
@@ -75,14 +90,7 @@
                             </div>
 
                             <div class="ps-product__shopping">
-                                <figure>
-                                    <figcaption>Quantity</figcaption>
-                                    <div class="form-group--number">
-                                        <button class="up"><i class="fa fa-plus"></i></button>
-                                        <button class="down"><i class="fa fa-minus"></i></button>
-                                        <input class="form-control" type="text" placeholder="1">
-                                    </div>
-                                </figure>
+
                                 @if(Auth::check() && Auth::user()->permissions_id == 3)
                                 <a class="ps-btn ps-btn--black" href="{{route('productEdit',$product->slug)}}">Edit Product</a>
                                 @elseif($product->status != 'Renewal')
@@ -100,6 +108,7 @@
                                             @else
                                                 <a class="ps-btn ps-btn--black" href="{{route('addCart',$product->slug)}}">Add to cart</a>
                                             @endif
+
                                          @endif
                                     @endif
 
@@ -186,3 +195,17 @@
     </div>
 </div>
 @endsection
+
+@push('jss')
+<script>
+    function copyToClipboard(element) {
+     event.preventDefault()
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('href')).select();
+      document.execCommand("copy");
+      alert('Affiliate Link Copied');
+      $temp.remove();
+    }
+</script>
+@endpush
