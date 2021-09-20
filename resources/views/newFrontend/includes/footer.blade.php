@@ -11,7 +11,7 @@
                 <div class="ps-block__item">
                     <div class="ps-block__left"><i class="icon-sync"></i></div>
                     <div class="ps-block__right">
-                        <h4>90 Days Return</h4>
+                        <h4>7 Days Return</h4>
                         <p>If goods have problems</p>
                     </div>
                 </div>

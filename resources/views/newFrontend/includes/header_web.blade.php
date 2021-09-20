@@ -3,7 +3,7 @@
     <div class="header__top">
         <div class="container">
             <div class="header__left">
-                <p>Welcome toe-Bazarr Online Shopping Store !</p>
+                <p>Welcome to e-Bazarr !</p>
             </div>
             <div class="header__right">
                 <ul class="header__top-links">
