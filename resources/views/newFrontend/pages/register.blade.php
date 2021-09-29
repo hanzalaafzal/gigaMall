@@ -10,8 +10,8 @@
          <div class="container">
              <form class="ps-form--account ps-tab-root" action="{{ url('/register') }}" method="POST" id="login-form">
                  <ul class="ps-tab-list">
-                     <li><a href="{{url('/login')}}">Login</a></li>
-                     <li class="active"><a href="#">Register</a></li>
+                     <li><a href="{{url('/login')}}" onclick="redirect()">Login</a></li>
+                     <li class="active"><a href="#sign-in">Register</a></li>
                  </ul>
                  <div class="ps-tabs">
                      <div class="ps-tab active" id="sign-in">
@@ -38,7 +38,7 @@
                                <div class="form-group">
                                     <select class="form-control" name="user_type" required>
                                       <option value="" disabled>Select User Type</option>
-                                      <option value="1">Shop Partner</option>
+                                      <option value="1">Shop Keeper</option>
                                       <option value="2">Customer</option>
                                       <option value="3">Affiliator</option>
                                     </select>
@@ -56,32 +56,17 @@
 
                          </div>
                      </div>
-                     <div class="ps-tab" id="register">
-                         <div class="ps-form__content">
-                             <h5>Register An Account</h5>
-                             <div class="form-group">
-                                 <input class="form-control" type="text" placeholder="Username or email address">
-                             </div>
-                             <div class="form-group">
-                                 <input class="form-control" type="text" placeholder="Password">
-                             </div>
-                             <div class="form-group submtit">
-                                 <button class="ps-btn ps-btn--fullwidth">Login</button>
-                             </div>
-                         </div>
-                         <div class="ps-form__footer">
-                             <p>Connect with:</p>
-                             <ul class="ps-list--social">
-                                 <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                 <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                 <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                 <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                             </ul>
-                         </div>
-                     </div>
+
                  </div>
              </form>
          </div>
      </div>
  </div>
 @endsection
+@push('jss')
+<script>
+    function redirect() {
+      window.location.href= "{!! url('/login') !!}";
+    }
+</script>
+@endpush

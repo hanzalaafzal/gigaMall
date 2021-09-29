@@ -7,14 +7,35 @@
           @php
             $count=1
           @endphp
-            <div class="ps-section__left">
-                <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+            <div class="" style="width:100%">
+                <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="1" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
                   @foreach($slider as $key=>$slid)
-                  <a href="{{route('productView',$slid->slug)}}"><img style="width:770px;height:331px" src="{{url('/frontEnd/images/products/'.$slid->photo)}}" alt=""></a>
+                  <a href="{{route('productView',$slid->slug)}}">
+                    <img style="width:100%;height:331px" src="{{url('/frontEnd/images/products/'.$slid->photo)}}" alt="">
+                  </a>
                   @endforeach
                </div>
             </div>
 
+        </div>
+    </div>
+    <div class="ps-deal-of-day">
+        <div class="container">
+            <div class="ps-section__header">
+                <div class="ps-block--countdown-deal">
+                    <div class="ps-block__left">
+                        <h3> <a href="/products/search?ebazarr=yes"> E-bazarr Mall</a></h3>
+                    </div>
+                </div>
+                <!-- <a href="shop-default.html">View all</a> -->
+            </div>
+            <div class="ps-section__content">
+                <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true" data-owl-item="5" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="4" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
+                  @foreach($admin_products as $product)
+                      @include('newFrontend.includes.product_list')
+                  @endforeach
+                </div>
+            </div>
         </div>
     </div>
     <div class="ps-deal-of-day">

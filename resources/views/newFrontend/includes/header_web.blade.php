@@ -2,9 +2,7 @@
 <header class="header header--standard header--market-place-2" data-sticky="true">
     <div class="header__top">
         <div class="container">
-            <div class="header__left">
-                <p>Welcome to e-Bazarr !</p>
-            </div>
+
             <div class="header__right">
                 <ul class="header__top-links">
                     <!-- <li><a href="#">Store Location</a></li>
@@ -38,11 +36,12 @@
     <div class="header__content">
         <div class="container">
             <div class="header__content-left">
-              <a class="ps-logo" href="index.html"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>
+              <a class="ps-logo" href="{{url('/')}}"><img src="{{url('/frontEnd/images/logo-old.png')}}"  alt=""></a>
             </div>
             <div class="header__content-center">
                 <form class="ps-form--quick-search" action="{{route('searchProduct')}}" method="get">
-                    <div class="form-group--icon"><i class="icon-chevron-down"></i>
+                    <div class="form-group--icon" style="width:50%">
+                      <i class="icon-chevron-down"></i>
                         <select class="form-control" name="category" required>
                           @foreach($categories as $category)
                               <option value="{{$category->slug}}">{{$category->name}}</option>
