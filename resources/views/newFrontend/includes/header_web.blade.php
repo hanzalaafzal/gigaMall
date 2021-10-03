@@ -31,7 +31,10 @@
     	if (Auth::check()) {
     		$carts = App\Helpers\Helper_user::carts();
     		$categories = App\Helpers\Helper_user::getCategories();
-    	}
+    	}else{
+        $carts = App\Helpers\Helper_user::carts();
+    		$categories = App\Helpers\Helper_user::getCategories();
+      }
     ?>
     <div class="header__content">
         <div class="container">
@@ -119,6 +122,9 @@
                 <li><a href="{{route('helpSupport')}}}">Faqs</a>
                 </li>
                 <li><a href="{{route('helpSupport')}}">Help & Support</a>
+                  @if(!Auth::check())
+                  <li><a href="{{route('register')}}" style="background:black;padding:10px;color:white">Become a shop partner</a>
+                  @endif
                 </li>
 
             </ul>

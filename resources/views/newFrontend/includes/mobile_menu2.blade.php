@@ -8,6 +8,8 @@
             if (Auth::check()) {
               $carts = App\Helpers\Helper_user::carts();
               $categories = App\Helpers\Helper_user::getCategories();
+            }else{
+                  		$categories = App\Helpers\Helper_user::getCategories();
             }
           ?>
           @foreach($categories as $category)

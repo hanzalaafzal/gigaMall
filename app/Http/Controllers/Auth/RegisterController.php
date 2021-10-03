@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Redirect;
 use Helper;
 use App\Wallet;
-
+use DB;
 
 class RegisterController extends Controller
 {
@@ -55,6 +55,22 @@ class RegisterController extends Controller
             'user_name' => 'required|string|max:20|min:5|regex:/(^([a-zA-Z0-9_]+)(\d+)?$)/u|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'user_type' => 'required|string',
+            'shop_name' => 'required_if:user_type,1',
+            'business_name' => 'required_if:user_type,1|string',
+            'cnic' => 'required_if:user_type,1|string',
+            'city' => 'required_if:user_type,1',
+            'province' => 'required_if:user_type,1',
+            'mobile' => 'required_if:user_type,1',
+            'shop_address' => 'required_if:user_type,1'
+        ],[
+          'shop_name.required_if' => 'Shop name is required',
+          'business_name.required_if' => 'Business name is required',
+          'cnic.required_if' => 'Your cnic number is required',
+          'city.required_if' => 'City name is required',
+          'province.required_if' => 'Province name is required',
+          'mobile.required_if' => 'Mobile No is required',
+          'shop_address.required_if' => 'Shop address is required'
         ]);
     }
 
@@ -90,6 +106,19 @@ class RegisterController extends Controller
             'permissions_id' => $userType,    // Permission Group ID
             'password' => bcrypt($data['password']),
         ]);
+
+        DB::table('shopper_details')->insert([
+          'user_id' => $user->id,
+          'business_name' => $data['business_name'],
+          'cnic' => $data['cnic'],
+          'city' => $data['city'],
+          'province' => $data['province'],
+          'ntn' => $data['ntn'],
+          'stn' => $data['stn'],
+          'mobile_number' => $data['mobile'],
+          'shop_address' => $data['shop_address']
+        ]);
+
 
         $wallet = new wallet();
         $wallet->user_id = $user->id;
