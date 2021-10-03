@@ -12,7 +12,7 @@
       <div class="container">
           <aside class="ps-block--store-banner">
               <div class="ps-block__content bg--cover" data-background="{{asset('assets/img/vendor/store/default_banner.jpg')}}">
-                  <h3>{{$user->user_name}}</h3><a class="ps-block__inquiry" href="#"><i class="fa fa-question"></i> Inquiry</a>
+                  <h3>{{$user->user_name}}</h3><a class="ps-block__inquiry" href="{{route('chat',$user->user_name)}}">Chat now</a>
               </div>
               <div class="ps-block__user">
                   <div class="ps-block__user-avatar">
