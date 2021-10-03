@@ -63,9 +63,9 @@
         </div>
     </div>
     <div class="ps-search--mobile">
-        <form class="ps-form--search-mobile" action="index.html" method="get">
+        <form class="ps-form--search-mobile" action="{{route('searchProduct')}}" method="get">
             <div class="form-group--nest">
-                <input class="form-control" type="text" placeholder="Search something..." />
+                <input class="form-control" name="keyword" type="text" placeholder="Search something..." />
                 <button><i class="icon-magnifier"></i></button>
             </div>
         </form>
