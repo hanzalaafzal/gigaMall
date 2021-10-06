@@ -240,7 +240,8 @@ class OrderController extends Controller
     }
 
     public function recharge_e_wallet(){
-        return view('frontEnd.client.recharge_e_wallet');
+        // return view('frontEnd.client.recharge_e_wallet');
+          return view('newFrontend.pages.recharge_wallet');
     }
     public function post_recharge_e_wallet(Request $request){
          \Stripe\Stripe::setApiKey ( 'sk_test_51H2omrEBrijIcOQ0FrcrRTJ0oFUOuaBvrr8r54VHpukmRzwHQ8HVDxGgMzp2ktmGY9SPzT9Bf0mp4SkuHCW1o9ZP00DHfHaVxj' );

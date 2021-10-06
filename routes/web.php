@@ -525,8 +525,8 @@ Route::Group(['middleware' => ['client']], function () {
     Route::get('/checkout', 'CartController@checkout')->name('checkout');
 
     // Order
-    Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet');
-    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet');
+    Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet')->name('hellll');
+    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
 
     Route::get('withdraw_amount','OrderController@withdraw_amount');
     Route::post('withdraw_amount','OrderController@post_withdraw_amount');
@@ -759,5 +759,5 @@ Route::get('/{lang?}/topic/{id}', 'FrontendHomeController@topicByLang')->name('F
 Route::get('withdraw_amount','OrderController@withdraw_amount');
     Route::post('withdraw_amount','OrderController@post_withdraw_amount');
 
-      Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet');
-    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet');
+    // Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet');
+    // Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('rechargePost');

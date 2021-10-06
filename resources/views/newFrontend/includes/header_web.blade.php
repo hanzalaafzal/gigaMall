@@ -57,10 +57,10 @@
 
             </div>
             <div class="header__content-right">
-                <div class="header__actions"><a class="header__extra" href="#"><i style="display:none" class="icon-heart"></i></a>
+                <div class="header__actions"><a class="header__extra" title="Become a shop partner" href="{{route('register')}}"><i class="icon-bag2"></i></a>
                 @if(Auth::check())
                     @if(Auth::user()->permissions_id == 4)
-                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>{{count($carts)}}</i></span></a>
+                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-cart"></i><span><i>{{count($carts)}}</i></span></a>
                       @if(count($carts)>0)
                         <div class="ps-cart__content">
                             <div class="ps-cart__items">
@@ -82,7 +82,7 @@
                     </div>
                     @endif
                   @else
-                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>{{count($carts)}}</i></span></a>
+                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-cart"></i><span><i>{{count($carts)}}</i></span></a>
                         <div class="ps-cart__content">
                             <div class="ps-cart__items">
 
@@ -122,10 +122,13 @@
                 <li><a href="{{route('helpSupport')}}}">Faqs</a>
                 </li>
                 <li><a href="{{route('helpSupport')}}">Help & Support</a>
-                  @if(!Auth::check())
-                  <li><a href="{{route('register')}}" style="background:black;padding:10px;color:white">Become a shop partner</a>
-                  @endif
                 </li>
+
+                  @if(!Auth::check())
+                  <li><a href="{{route('register')}}">Become an Affiliate</a>
+                    </li>
+                  @endif
+
 
             </ul>
         </div>

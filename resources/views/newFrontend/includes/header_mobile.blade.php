@@ -36,7 +36,7 @@
 
                             </div>
                             <div class="ps-cart__footer">
-                                <h3>Sub Total:<strong>$59.99</strong></h3>
+                                <!-- <h3>Sub Total:<strong>$59.99</strong></h3> -->
                                 <figure><a class="ps-btn" href="{{route('myCart')}}">View Cart</a><a class="ps-btn" href="{{route('checkout')}}">Checkout</a></figure>
                             </div>
                         </div>
