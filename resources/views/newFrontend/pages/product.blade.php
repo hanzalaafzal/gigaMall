@@ -67,10 +67,12 @@
                             </div>
                             <h4 class="ps-product__price">
                               @if($product->original_price > $product->price )
-                                {{$product->original_price}} PKR
+                               <del>  {{$product->original_price}} PKR </del>
+                               &nbsp;
+                               {{$product->price}} PKR
                               @else
-                              {{$product->price}}
-                              <del>{{$product->original_price}} PKR</del>
+
+                              {{$product->original_price}} PKR
 
                               @endif
                             </h4>
@@ -119,7 +121,7 @@
                             </div>
                             <div class="ps-product__specification">
                                 <p><strong>Contact:</strong>{{$product->shops->users->phone}}</p>
-                                <p class="categories"><strong> Category:</strong><a href="#">{{$product->categories->name}} - {{$product->subCategories->name}}</a></p>
+                                <p class="categories"><strong> Category:</strong><a href="{{route('searchProduct')}}?category={{$product->categories->slug}}">{{$product->categories->name}} - {{$product->subCategories->name}}</a></p>
                                 <p class="tags"><strong>Product type</strong><a href="#">{{$product->productTypes->name}}</a></p>
                             </div>
                             <div class="ps-product__sharing"><a class="facebook" href="#"><i class="fa fa-facebook"></i></a><a class="twitter" href="#"><i class="fa fa-twitter"></i></a><a class="google" href="#"><i class="fa fa-google-plus"></i></a><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></div>

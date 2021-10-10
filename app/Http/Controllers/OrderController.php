@@ -184,7 +184,8 @@ class OrderController extends Controller
                 // }
             }
 
-        return view('frontEnd.client.withdraw_amount',compact('releaseAmount'));
+        // return view('frontEnd.client.withdraw_amount',compact('releaseAmount'));
+        return view('newFrontend.pages.withdraw',compact('releaseAmount'));
     }
 
     public function post_withdraw_amount(Request $request){
