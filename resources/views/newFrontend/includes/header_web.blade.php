@@ -119,7 +119,7 @@
                 </li>
                 <li><a href="{{route('searchShop')}}">Shops</a>
                 </li>
-                <li><a href="{{route('helpSupport')}}}">Faqs</a>
+                <li><a href="{{route('helpSupport')}}">Faqs</a>
                 </li>
                 <li><a href="{{route('helpSupport')}}">Help & Support</a>
                 </li>

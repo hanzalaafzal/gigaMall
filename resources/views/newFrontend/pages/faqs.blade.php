@@ -21,59 +21,114 @@
                         <tbody>
                             <tr>
                                 <td class="heading" rowspan="3">
-                                    <h4>READ BEFORE ORDER</h4>
+                                    <h4>ABOUT US</h4>
                                 </td>
-                                <td class="question"> Bidding for the First Time</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</td>
+                                <td class="question"> Why E-Bazarr ?</td>
+                                <td>E-BAZARR is an ecommerce website which provides its customers to buy and sell thousands of products online. E-BAZARR connects sellers with the customers and provides thousands of products to its customers within a click.</td>
                             </tr>
+
+                        </tbody>
+                        <tbody>
                             <tr>
-                                <td class="question">Do You Ship Internationally?</td>
-                                <td>Hoodie tote bag mixtape tofu. Typewriter jean shorts wolf quinoa, messenger bag organic freegan cray.</td>
-                            </tr>
-                            <tr>
-                                <td class="question">How Long Will It Take To Get My Package?</td>
-                                <td>Swag slow-carb quinoa VHS typewriter pork belly brunch, paleo single-origin coffee Wes Anderson. Flexitarian Pitchfork forage, literally paleo fap pour-over. Wes Anderson Pinterest YOLO fanny pack meggings, deep v XOXO chambray sustainable slow-carb raw denim church-key fap chillwave Etsy. +1 typewriter kitsch, American Apparel tofu Banksy Vice.</td>
-                            </tr>
-                            <tr>
-                                <td class="heading" rowspan="2">
-                                    <h4>PAYMENT</h4>
+                                <td class="heading" rowspan="3">
+                                    <h4>Affiliate Program</h4>
                                 </td>
-                                <td class="question"> What Payment Methods Are Accepted?</td>
-                                <td>Fashion axe DIY jean shorts, swag kale chips meh polaroid kogi butcher Wes Anderson chambray next level semiotics gentrify yr. Voluptate photo booth fugiat Vice. Austin sed Williamsburg, ea labore raw denim voluptate cred proident mixtape excepteur mustache. Twee chia photo booth readymade food truck, hoodie roof party swag keytar PBR DIY.</td>
-                            </tr>
-                            <tr>
-                                <td class="question">Is Buying On-Line Safe?</td>
-                                <td>Art party authentic freegan semiotics jean shorts chia cred. Neutra Austin roof party Brooklyn, synth Thundercats swag 8-bit photo booth. Plaid letterpress leggings craft beer meh ethical Pinterest.</td>
-                            </tr>
-                            <tr>
-                                <td class="heading" rowspan="5">
-                                    <h4>Order & Retunrs</h4>
+                                <td class="question"> What is Affiliate Program?</td>
+                                <td>Affiliate program is the process by which an affiliator can earn a commision for marketing e-bazarr's products. Following are the points affiliator needs to follow:
+                                  <ul>
+                                    <li>The affiliate simply searches for a product.</li>
+                                    <li>Creates its own affiliate product link from affiliate page.</li>
+                                    <li>Promotes that product and earns a piece of the profit from each sale affiliator makes.</li>
+                                    <li>Every product has its own profit percentage.</li>
+                                  </ul>
                                 </td>
-                                <td class="question"> How do I place an Order?</td>
-                                <td>Keytar cray slow-carb, Godard banh mi salvia pour-over. Slow-carb Odd Future seitan normcore. Master cleanse American Apparel gentrify flexitarian beard slow-carb next level. Raw denim polaroid paleo farm-to-table, put a bird on it lo-fi tattooed Wes Anderson Pinterest letterpress. Fingerstache McSweeney’s pour-over, letterpress Schlitz photo booth master cleanse bespoke hashtag chillwave gentrify.</td>
                             </tr>
                             <tr>
-                                <td class="question">How Can I Cancel Or Change My Order?</td>
-                                <td>Plaid letterpress leggings craft beer meh ethical Pinterest. Art party authentic freegan semiotics jean shorts chia cred. Neutra Austin roof party Brooklyn, synth Thundercats swag 8-bit photo booth.</td>
+                                <td class="question"> How to get started with affiliate marketing?</td>
+                                <td>
+                                  <ul>
+                                    <li>Choose your product to sale.</li>
+                                    <li>Create your own affiliate link.</li>
+                                    <li>Drive traffic to your affiliate site.</li>
+                                    <li>Get clicks on your affiliate links.</li>
+                                    <li>Convert clicks to sales.</li>
+                                  </ul>
+                                </td>
                             </tr>
                             <tr>
-                                <td class="question">Do I need an account to place an order?</td>
-                                <td>Thundercats swag 8-bit photo booth. Plaid letterpress leggings craft beer meh ethical Pinterest. Twee chia photo booth readymade food truck, hoodie roof party swag keytar PBR DIY. Cray ugh 3 wolf moon fap, fashion axe irony butcher cornhole typewriter chambray VHS banjo street art.</td>
+                                <td class="question">How much do affiliate link pay?</td>
+                                <td>
+                                  Affiliate links for affiliators are one of the greatest sources of supplementary income. It allows them to generate up to 5,000 to 500,000 monthly from promoting helpful products. Substantial income is possible if affilates are able to reach out to a large audience that will listen to their voice.
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td class="heading" rowspan="3">
+                                    <h4>OUR PRODUCTS</h4>
+                                </td>
+                                <td class="question"> What products do we offer?</td>
+                                <td>E-BAZARR product include books, apparel, baby products, consumer electronics, beauty products, health and personal-care items, industrial & scientific supplies, technology tools, kitchen items, jewelry and watches, lawn and garden items, musical instruments, sporting goods, tools, arts and crafts, automotive items and toys/games.</td>
                             </tr>
                             <tr>
-                                <td class="question">How Do I Track My Order?</td>
-                                <td>Kale chips Truffaut Williamsburg, hashtag fixie Pinterest raw denim c hambray drinking vinegar Carles street art Bushwick gastropub. Wolf Tumblr paleo church-key. Plaid food truck Echo Park YOLO bitters hella, direct trade Thundercats leggings quinoa before they sold out. You probably haven’t heard of them wayfarers authentic umami drinking vinegar Pinterest Cosby sweater, fingerstache fap High Life.</td>
+
+                                <td class="question">How are the quality of the products?</td>
+                                <td>E-BAZARR enforces ban on sellers who violate our selling policies. Violations related to product authenticity are categorized as intellectual property violations. Issues with the overall product quality, including products that do not match their descriptions, can be categorized as product condition violations. Hence, E-BAZARR ensures every product is at high quality standards.</td>
                             </tr>
+                            <tr>
+
+                                <td class="question">What is the return policy for products?</td>
+                                <td>Items shipped from E-BAZARR, can be returned within 7 days after receiving product. It can take up to 10 days for an item to reach us once you return it. Once the item is received at our fulfillment center, it takes 7 days for the refund to be processed and 3-5 business days for the refund amount to show up in your account.</td>
+                            </tr>
+
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td class="heading" rowspan="3">
+                                    <h4>PAYMENT METHODS</h4>
+                                </td>
+                                <td class="question">Which payment method do you offer?</td>
+                                <td>E-BAZARR offers three types of payment methods:
+                                  <ul>
+                                    <li>Through Credit Card </li>
+                                    <li>Through Bank Transfer / Easy-Paisa/ Jazz Cash</li>
+                                    <li>Cash on delivery</li>
+                                  </ul>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="question">Is online payment secure?</td>
+                                <td>Yes, Payment methods implemented in our website E-BAZARR are 100 % secure.</td>
+                            </tr>
+
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td class="heading" rowspan="3">
+                                    <h4>DELIVERY SYSTEM (METHOD DAYS POLICY)</h4>
+                                </td>
+                                <td class="question">Do delivery of product follow covid protocols?</td>
+                                <td>Yes, our delivery of products does follow covid protocols.
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="question">In how many days I will receive my parcel?</td>
+                                <td>Usually parcels or products are receivable within 3-5 working days, once dispatched.</td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ps-call-to-action">
+    <!-- <div class="ps-call-to-action">
         <div class="container">
             <h3>We’re Here to Help !<a href="#"> Contact us</a></h3>
         </div>
-    </div>
+    </div> -->
 </div>
 @endsection
