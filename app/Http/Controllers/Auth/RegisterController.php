@@ -107,17 +107,20 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        DB::table('shopper_details')->insert([
-          'user_id' => $user->id,
-          'business_name' => $data['business_name'],
-          'cnic' => $data['cnic'],
-          'city' => $data['city'],
-          'province' => $data['province'],
-          'ntn' => $data['ntn'],
-          'stn' => $data['stn'],
-          'mobile_number' => $data['mobile'],
-          'shop_address' => $data['shop_address']
-        ]);
+        if($data['user_type']==1){
+          DB::table('shopper_details')->insert([
+            'user_id' => $user->id,
+            'business_name' => $data['business_name'],
+            'cnic' => $data['cnic'],
+            'city' => $data['city'],
+            'province' => $data['province'],
+            'ntn' => $data['ntn'],
+            'stn' => $data['stn'],
+            'mobile_number' => $data['mobile'],
+            'shop_address' => $data['shop_address']
+          ]);
+        }
+
 
 
         $wallet = new wallet();

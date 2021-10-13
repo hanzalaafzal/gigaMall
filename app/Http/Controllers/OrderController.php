@@ -241,7 +241,9 @@ class OrderController extends Controller
     }
 
     public function recharge_e_wallet(){
+    
         // return view('frontEnd.client.recharge_e_wallet');
+        //dd('test');
           return view('newFrontend.pages.recharge_wallet');
     }
     public function post_recharge_e_wallet(Request $request){

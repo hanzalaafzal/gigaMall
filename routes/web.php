@@ -512,6 +512,10 @@ Route::Group(['middleware' => ['client']], function () {
     //Reset Password
     Route::get('client/reset/password', 'UserDetailsController@clientResetPassword')->name('clientResetPassword');
 
+    // Order
+    Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet')->name('hellll');
+    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
+
     //Client Details
     Route::post('/address-store', 'UserDetailsController@storeAddress')->name('storeAddress');
     Route::get('/address-delete/{id}', 'UserDetailsController@deleteAddress')->name('deleteAddress');
@@ -524,9 +528,7 @@ Route::Group(['middleware' => ['client']], function () {
     Route::get('/cart-remove/{id}', 'CartController@destroy')->name('removeCart');
     Route::get('/checkout', 'CartController@checkout')->name('checkout');
 
-    // Order
-    Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet')->name('hellll');
-    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
+
 
     Route::get('withdraw_amount','OrderController@withdraw_amount');
     Route::post('withdraw_amount','OrderController@post_withdraw_amount');
@@ -568,6 +570,10 @@ Route::Group(['middleware' => ['client']], function () {
 
 /**************** Vendor Routes ********************/
 Route::Group(['middleware' => ['vendor']], function () {
+
+  // Order
+  Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet')->name('hellll');
+  Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
 
     Route::get('shop/vendor/add-bonus/', 'UserDetailsController@addBonus')->name('vendorAddBonus');
 
@@ -758,6 +764,10 @@ Route::get('/{lang?}/topic/{id}', 'FrontendHomeController@topicByLang')->name('F
  */
 Route::get('withdraw_amount','OrderController@withdraw_amount');
     Route::post('withdraw_amount','OrderController@post_withdraw_amount');
+
+    // Order
+    Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet')->name('hellll');
+    Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
 
     // Route::get('/recharge_e_wallet','OrderController@recharge_e_wallet');
     // Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('rechargePost');

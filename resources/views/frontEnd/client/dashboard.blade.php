@@ -36,7 +36,7 @@
 	    <h4>Account & Addresses</h4>
 	    <a href="{{route('checkout')}}"  class="button mid-short primary">Go To Checkout</a>
 	    <a href="{{route('myCart')}}"  class="button mid-short secondary">Go To Cart</a>
-	    <a href="/recharge_e_wallet"  class="button mid-short primary">Recharge E-Wallet</a>  
+	    <a href="{{route('hellll')}}"  class="button mid-short primary">Recharge E-Wallet</a>  
 	    @php
 	    	$wallet = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
 	    @endphp
@@ -60,11 +60,11 @@
 		<h4>Profile Information</h4>
 		<div class="pass-reset-buttons">
 		    @if(auth()->user()->permissions_id == 5)
-		    <a href="{{route('ResetPassword')}}" class="button primary">Reset Password</a>	
+		    <a href="{{route('ResetPassword')}}" class="button primary">Reset Password</a>
 		    @else
-		    <a href="{{route('clientResetPassword')}}" class="button primary">Reset Password</a>	
+		    <a href="{{route('clientResetPassword')}}" class="button primary">Reset Password</a>
 		    @endif
-			
+
 		</div>
 		<hr class="line-separator">
 			<!-- PROFILE IMAGE UPLOAD -->
@@ -89,28 +89,28 @@
 					<input type="text" id="first_name" value="{{Auth::user()->first_name}}" required name="first_name" placeholder="Enter your first name here...">
 				</div>
 				<!-- /INPUT CONTAINER -->
-	
+
 				<!-- INPUT CONTAINER -->
 				<div class="input-container half">
 					<label for="last_name" class="rl-label required">Last Name</label>
 					<input type="text" id="last_name" value="{{Auth::user()->last_name}}" required name="last_name" placeholder="Enter your full name here...">
 				</div>
 				<!-- /INPUT CONTAINER -->
-	
+
 				<!-- INPUT CONTAINER -->
 				<div class="input-container half">
 					<label for="phone" class="rl-label required">Phone Number</label>
 					<input type="number" id="phone" value="{{Auth::user()->phone}}" required name="phone" placeholder="Enter your phone number here...">
 				</div>
 				<!-- /INPUT CONTAINER -->
-	
+
 				<!-- INPUT CONTAINER -->
 				<div class="input-container half" style="float: left;">
 					<label for="email" class="rl-label">Email <small>(Non Editable)</small></label>
 					<input type="email" id="email" value="{{Auth::user()->email}}" readonly="">
 				</div>
 				<!-- /INPUT CONTAINER -->
-	
+
 				<!-- INPUT CONTAINER -->
 				<div class="input-container">
 					<label for="photo" class="rl-label">Profile Picture</label>
@@ -302,7 +302,7 @@
 
 		<!-- FORM BOX ITEM -->
 			<div class="form-box-item">
-			
+
 			<h4>Add New Address</h4>
 			<hr class="line-separator">
 

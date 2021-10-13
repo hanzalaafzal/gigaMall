@@ -133,7 +133,7 @@
                         </div>
                         <br>
                         <div style="padding-bottom:10px">
-                          <button type="submit" name="button" class="btn btn-lg btn-primary float-right" style="top:100%;border: none;font-weight: 700;padding: 0 24px;border-radius:4px;background-color:#fcb800;color:#000;height:40px;">Search</button>
+                          <button type="submit" name="button" class="btn btn-lg btn-primary float-right" style="top:100%;border: none;font-weight: 700;padding: 0 24px;border-radius:4px;background-color:#20c997;color:#000;height:40px;">Search</button>
                         </div>
                         @if(isset($q['ebazarr']))
                              <input type="hidden" name="ebazarr" value="yes">
