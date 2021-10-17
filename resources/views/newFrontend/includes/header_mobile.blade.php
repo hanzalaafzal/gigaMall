@@ -16,7 +16,7 @@
       }
     ?>
     <div class="navigation--mobile">
-        <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="img/logo_light.png" alt="" /></a></div>
+        <div class="navigation__left"><a class="ps-logo" href="{{url('/')}}"><img src="{{url('/frontEnd/images/e_new_logo.png')}}" style="height:60px" alt="" /></a></div>
         <div class="navigation__right">
             <div class="header__actions">
               @if(Auth::check())

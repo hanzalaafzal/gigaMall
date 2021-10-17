@@ -39,7 +39,7 @@
     <div class="header__content">
         <div class="container">
             <div class="header__content-left">
-              <a class="ps-logo" href="{{url('/')}}"><img src="{{url('/frontEnd/images/logo-old.png')}}"  alt=""></a>
+              <a class="ps-logo" href="{{url('/')}}"><img src="{{url('/frontEnd/images/e_new_logo.png')}}" style="height:60px" alt=""></a>
             </div>
             <div class="header__content-center">
                 <form class="ps-form--quick-search" action="{{route('searchProduct')}}" method="get">
