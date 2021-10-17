@@ -217,7 +217,7 @@ p {
     opacity: 0.8; }
 
 /*---------------------
-  	MFP TRANSITIONS 
+  	MFP TRANSITIONS
 ---------------------*/
 /* overlay at start */
 .mfp-fade.mfp-bg {
@@ -298,11 +298,11 @@ input {
     border-radius: 4px; }
   input[type="number"] {
     padding-right: 0; }
-    
-    input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+
+    input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
   input.rounded {
@@ -1316,9 +1316,11 @@ header, .menu-bar, .banner, #services,
             color: #00d7b3; }
       .dropdown.dark .dropdown-item > a {
         padding-left: 30px;
-        color: #6a7779;
+        color: white;
         transition: all .2s ease-in; }
-        .dropdown.dark .dropdown-item > a .svg-arrow {
+      .dropdown.dark .dropdown-item:hover > a {
+          color: #00d7b3; }
+      .dropdown.dark .dropdown-item > a .svg-arrow {
           transition: fill .2s ease-in; }
   .dropdown.no-hover .dropdown-item {
     cursor: auto; }
@@ -7507,7 +7509,7 @@ pre {
 /****** Homi ****/
 @media screen and (max-width: 680px) {
   .product-list.list .product-item .item-actions{
-    top: 79px; 
+    top: 79px;
     left: 168px;
   }
   .product-list.list .product-item .metadata{
@@ -7552,7 +7554,7 @@ pre {
   height: unset;
 }
 .shop p.product-description{
-  height: 18px !important; 
+  height: 18px !important;
   display: -webkit-box !important;
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical;
@@ -7595,13 +7597,13 @@ line-height: 18px !important;
   padding:0;
   margin-top: 30px;
   margin-bottom: 10px;
-  
+
   -moz-user-select:none;
   -webkit-user-select:none;
 }
 .rating-stars ul > li.star {
   display:inline-block;
-  
+
 }
 
 /* Idle State of the stars */
