@@ -95,7 +95,7 @@ class CartController extends Controller
                 if(count($CouponRedeemed)>0){
                     $CouponRedeemed->delete();
                 }
-                return view('frontEnd.orders.checkout');
+                return view('newFrontend.pages.checkout');
                 echo "no redeemed";die();
                  }
         }

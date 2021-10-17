@@ -241,7 +241,7 @@ class OrderController extends Controller
     }
 
     public function recharge_e_wallet(){
-    
+
         // return view('frontEnd.client.recharge_e_wallet');
         //dd('test');
           return view('newFrontend.pages.recharge_wallet');
@@ -273,7 +273,9 @@ class OrderController extends Controller
 
     }
 
-    public function cash_on_delivery($subtotal, $shipping){
+    public function cash_on_delivery($subtotal, $shipping,Request $req){
+
+
 
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
@@ -358,8 +360,8 @@ class OrderController extends Controller
         }
         $order->save();
 
-        $request->shipping_address = 'test';
-        $request->billing_address = 'test';
+        $request->shipping_address = $req->billing_address;
+        $request->billing_address = $req->shipping_address;
 
         //Order Addresses
         $ship_add = AddressBook::find($request->shipping_address);
@@ -556,8 +558,8 @@ class OrderController extends Controller
         }
         $order->save();
 
-        $request->shipping_address = 'test';
-        $request->billing_address = 'test';
+        $request->shipping_address = $req->billing_address;
+        $request->billing_address = $req->shipping_address;
 
         //Order Addresses
         $ship_add = AddressBook::find($request->shipping_address);
@@ -983,7 +985,14 @@ class OrderController extends Controller
 
 
     //////////////////////////////////////////////////////////////////////
-    //////////////////////////// Client Functions ////////////////////////
+    //////////////////////////// Client Functions ////////////////////////.
+
+    public function cancelOrder($OrderId){
+      Order::where('order_number',$OrderId)->update([
+          'status' => 'Canceled',
+      ]);
+      return redirect()->route('clientOrdersCanceled');
+    }
 
     public function clientOrdersAll()
     {
@@ -991,6 +1000,7 @@ class OrderController extends Controller
         $count['active'] = Order::where('client_id', Auth::user()->id)->where('status', 'Active')->count();
         $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
         $count['all'] = Order::where('client_id', Auth::user()->id)->count();
+        $count['canceled'] = Order::where('client_id', Auth::user()->id)->where('status', 'Canceled')->count();
         return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
     public function clientOrdersActive()
@@ -999,8 +1009,20 @@ class OrderController extends Controller
         $count['active'] = Order::where('client_id', Auth::user()->id)->where('status', 'Active')->count();
         $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
         $count['all'] = Order::where('client_id', Auth::user()->id)->count();
+        $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
+
         return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
+
+    public function clientOrdersCanceled(){
+      $orders = Order::where('client_id', Auth::user()->id)->where('status', 'Canceled')->orderBy('id','desc')->get();
+      $count['active'] = Order::where('client_id', Auth::user()->id)->where('status', 'Active')->count();
+      $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
+      $count['all'] = Order::where('client_id', Auth::user()->id)->count();
+      $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
+      return view('frontEnd.client.orders.orders', compact('orders', 'count'));
+    }
+
     public function downloadInvoice($id){
         $order = Order::where('id', $id)->where('client_id', Auth::user()->id)->first();
         $pdf = \PDF::loadView('frontEnd.client.orders.invoice',compact('order'));
@@ -1012,6 +1034,7 @@ class OrderController extends Controller
         $count['active'] = Order::where('client_id', Auth::user()->id)->where('status', 'Active')->count();
         $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
         $count['all'] = Order::where('client_id', Auth::user()->id)->count();
+        $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
         return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
 

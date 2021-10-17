@@ -62,7 +62,8 @@
                               @endif
                             </div>
                             <br>
-                            <form  method="post" action="{{route('storeOrder')}}" enctype="multipart/form-data">
+                            <form  method="post" action="{{route('storeOrder')}}" id="checkForm" enctype="multipart/form-data">
+                              @csrf
                             <div class="ps-form__billing-info">
                                 <h3 class="ps-form__heading">Billing Details</h3>
                                 <div class="form-group">
@@ -70,7 +71,7 @@
                                     </label>
                                     <div class="form-group__content">
                                         <select class="form-control" name="billing_address" id="billing_address" required style="width:60%">
-                                          <option value="{{Auth::user()->addressBooksDefault->id}}">{{Auth::user()->addressBooksDefault->address}}</option>
+                                          <option value="{{Auth::user()->addressBooksDefault->id}}" selected>{{Auth::user()->addressBooksDefault->address}}</option>
                                           @foreach(Auth::user()->addressBooks as $address)
                                               <option value="{{$address->id}}">{{$address->address}}</option>
                                           @endforeach
@@ -95,7 +96,7 @@
                                 </div>
                                 <div class="form-group" id="ship-address">
                                       <select class="form-control" name="shipping_address" id="shipping_address" required style="width:60%">
-                                        <option value="{{Auth::user()->addressBooksDefault->id}}">{{Auth::user()->addressBooksDefault->address}}</option>
+                                        <option value="{{Auth::user()->addressBooksDefault->id}}" selected>{{Auth::user()->addressBooksDefault->address}}</option>
                                         @foreach(Auth::user()->addressBooks as $address)
                                             <option value="{{$address->id}}">{{$address->address}}</option>
                                         @endforeach
@@ -193,20 +194,20 @@
 
                                         </div>
                                     </div>
-                                    <button name="button" class="ps-btn ps-btn--fullwidth">Pay with E-bazarr Wallet</button>
+                                    <button name="button" type="button" onclick="checkout('wallet')" class="ps-btn ps-btn--fullwidth">Pay with E-bazarr Wallet</button>
                                     <br>
                                     <br>
-                                    <a href="{{'/bank_payment/'.$subtotal.'/'.$ship_price}}">
-                                      <button type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay with Master / Visa / Debit Card</button>
+                                    <a onclick="checkout('card')">
+                                      <button  type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay with Master / Visa / Debit Card</button>
                                     </a>
                                     <br>
                                     <br>
-                                    <a href="{{'/bank_payment/'.$subtotal.'/'.$ship_price}}">
+                                    <a onclick="checkout('easy')">
                                       <button type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay with Easy Paisa</button>
                                     </a>
                                     <br>
                                     <br>
-                                    <a href="{{'/cash_on_delivery/'.$subtotal.'/'.$ship_price}}">
+                                    <a onclick="checkout('cod')">
                                       <button type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay Cash on Delivery</button>
                                     </a>
                                 </div>
@@ -251,5 +252,26 @@
         $('#billing-address-container').append('<h5>'+result['full_name']+'</h5>'+'<h5>'+result['phone']+'</h5>'+'<h5>Country: '+result['country']+', Zipe Code: '+result['zip_code']+'</h5>'+'<h5>'+result['address']+'</h5>');
       });
     });
+</script>
+
+<script type="text/javascript">
+  function checkout(type){
+      var subtotal={!! $subtotal !!}
+      var shipping={!! $ship_price !!}
+
+    if(type=='easy'){
+      $('#checkForm').attr('action','{!! route("bank_payment",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').submit();
+    }else if(type=='cod'){
+      $('#checkForm').attr('action','{!! route("cash_on_delivery",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').submit();
+    }else if(type=='card'){
+      $('#checkForm').attr('action','{!! route("bank_payment",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').submit();
+    }else if(type=='wallet'){
+      $('#checkForm').attr('action','{!! route("storeOrder") !!}')
+      $('#checkForm').submit();
+    }
+  }
 </script>
 @endpush

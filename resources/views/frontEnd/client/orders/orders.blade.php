@@ -18,6 +18,7 @@
         <a href="{{route('clientOrdersCompleted')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersCompleted'){echo "dark-light";} ?>">Completed<small> ({{$count['completed']}})</small></a>
         <a href="{{route('clientOrdersAll')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersAll'){echo "dark-light";} ?>">All<small> ({{$count['all']}})</small></a>
         <a href="{{route('clientOrdersActive')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersActive'){echo "dark-light";} ?>">Active<small> ({{$count['active']}})</small></a>
+          <a href="{{route('clientOrdersCanceled')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersCanceled'){echo "dark-light";} ?>">Canceled<small> ({{$count['canceled']}})</small></a>
       </div>
    </div>
    <!-- /HEADLINE -->
@@ -52,6 +53,8 @@
             <div class="purchases-list-header-download">
                 <p class="text-header small">Action</p>
             </div>
+
+
         </div>
         <!-- /PURCHASES LIST HEADER -->
 
@@ -89,9 +92,33 @@
                 <p>{{$order->status}}</p>
             </div>
 
+            @php
+                $now=Carbon\Carbon::now();
+                $diff=$now->diffInSeconds($order->created_at);
+            @endphp
+
+            @if(Route::currentRouteName()=='clientOrdersActive')
+
+              @if($diff < 30)
+              <div class="purchase-item-download">
+                  <a href="{{route('clientOrderView',$order->id)}}" style="margin-top:-10px" class="button primary">View</a>
+                  <a href="{{route('cancelOrder',$order->order_number)}}" onclick="return confirm('Do you wish to cancel this order?')" style="margin-top:8px;color:white;background-color:red" class="button danger">Cancel</a>
+              </div>
+
+              @else
+              <div class="purchase-item-download">
+                  <a href="{{route('clientOrderView',$order->id)}}" class="button primary">View</a>
+              </div>
+              @endif
+
+            @else
             <div class="purchase-item-download">
                 <a href="{{route('clientOrderView',$order->id)}}" class="button primary">View</a>
             </div>
+            @endif
+
+
+
         </div>
         @endforeach
         <!-- /PURCHASE ITEM -->

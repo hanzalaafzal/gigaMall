@@ -535,13 +535,17 @@ Route::Group(['middleware' => ['client']], function () {
 
 
 
-    Route::get('/cash_on_delivery/{subtotal}/{shipping}','OrderController@cash_on_delivery');
-    Route::get('/bank_payment/{subtotal}/{shipping}','OrderController@storeBank');
+    Route::post('/cash_on_delivery/{subtotal}/{shipping}','OrderController@cash_on_delivery')->name('cash_on_delivery');
+    Route::post('/bank_payment/{subtotal}/{shipping}','OrderController@storeBank')->name('bank_payment');
     Route::post('bank_payment','OrderController@paymentPost');
     Route::post('/store-order', 'OrderController@store')->name('storeOrder');
+
+    Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
+
     Route::get('client/order/active', 'OrderController@clientOrdersActive')->name('clientOrdersActive');
     Route::get('client/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
     Route::get('client/order/completed', 'OrderController@clientOrdersCompleted')->name('clientOrdersCompleted');
+    Route::get('client/order/canceled', 'OrderController@clientOrdersCanceled')->name('clientOrdersCanceled');
     Route::get('client/order/view/{id}', 'OrderController@clientOrderView')->name('clientOrderView');
     Route::get('client/order/complete/{id}', 'OrderController@clientMarkDelivered')->name('clientMarkDelivered');
     Route::get('downloadInvoice/{id}','OrderController@downloadInvoice');
