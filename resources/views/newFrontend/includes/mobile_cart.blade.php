@@ -7,11 +7,11 @@
         $carts = App\Helpers\Helper_user::carts();
         $categories = App\Helpers\Helper_user::getCategories();
       }
-    ?>  
+    ?>
     <div class="navigation__content">
         <div class="ps-cart--mobile">
           @if(Auth::check())
-            @if(Auth::user()->permissions_id == 4)
+            @if(Auth::user()->permissions_id == 4 || Auth::user()->permissions_id == 5)
                 <div class="ps-cart__content">
                   @foreach($carts as $cart)
                     <div class="ps-product--cart-mobile">

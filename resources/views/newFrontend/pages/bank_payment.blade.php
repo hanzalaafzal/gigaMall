@@ -19,7 +19,7 @@
 
         </div>
         <div class="col-xl-8 col-lg-8">
-              <h3>Recharge your wallet</h3>
+              <h3>Pay through Card / Easy Paisa</h3>
         </div>
       </div>
 
@@ -42,13 +42,15 @@
                                 </ul>
                                 <div class="ps-tabs">
                                     <div class="ps-tab active" id="visa">
-                                      <form role="form" action='{{route("postRecharge")}}' method="post" class="ps-form--checkout require-validation"
+                                      <form role="form" action='{{route("paymentBank")}}' method="post" class="ps-form--checkout require-validation"
                                                                        data-cc-on-file="false"
                                                                       data-stripe-publishable-key="pk_test_51H2omrEBrijIcOQ027RdCxqbHjgHG7kQgdEmhrX8A9N9TzO8uqOzup9mf10Q2d9Hid3qMo87UOfymhfPoceLTS5F00oXrc9IhR"
                                                                       id="payment-form">
                                                                       @csrf
 
-                                          <input type="hidden" name="amount" value="{{$subtotal}}">
+                                          <input type="hidden" name="amount" value="{{$subtotal + $shipping}}">
+                                          <input type="hidden" name="shipping_ad" value="{{$shipping_ad}}">
+                                          <input type="hidden" name="billing_ad" value="{{$billing}}">
                                           <div class="form-group required">
                                               <label>Name on card</label>
                                               <input class="form-control" type="text" autocomplete='off'>
@@ -90,12 +92,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label>Amount to recharge</label>
-                                                <input class="form-control" type="text" name="amount" size='20' autocomplete='off' required>
-                                            </div>
                                             <div class="form-group submit">
-                                                <button class="ps-btn ps-btn--fullwidth" type="submit">PAY NOW</button>
+                                                <button class="ps-btn ps-btn--fullwidth" type="submit">PAY NOW {{$subtotal + $shipping}} PKR </button>
                                             </div>
 
                                     </div>

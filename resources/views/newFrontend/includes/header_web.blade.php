@@ -59,7 +59,7 @@
             <div class="header__content-right">
                 <div class="header__actions"><a class="header__extra" title="Become a shop partner" href="{{route('register')}}"><i class="icon-bag2"></i></a>
                 @if(Auth::check())
-                    @if(Auth::user()->permissions_id == 4)
+                    @if(Auth::user()->permissions_id == 4 || Auth::user()->permissions_id == 5 )
                     <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-cart"></i><span><i>{{count($carts)}}</i></span></a>
                       @if(count($carts)>0)
                         <div class="ps-cart__content">

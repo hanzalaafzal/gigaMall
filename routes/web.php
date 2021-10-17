@@ -536,8 +536,8 @@ Route::Group(['middleware' => ['client']], function () {
 
 
     Route::post('/cash_on_delivery/{subtotal}/{shipping}','OrderController@cash_on_delivery')->name('cash_on_delivery');
-    Route::post('/bank_payment/{subtotal}/{shipping}','OrderController@storeBank')->name('bank_payment');
-    Route::post('bank_payment','OrderController@paymentPost');
+    Route::get('/bank_payment/{subtotal}/{shipping}/{shipping_ad}/{billing_ad}','OrderController@storeBank')->name('bank_payment');
+    Route::post('bank_payment','OrderController@paymentPost')->name('paymentBank');
     Route::post('/store-order', 'OrderController@store')->name('storeOrder');
 
     Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
@@ -580,6 +580,32 @@ Route::Group(['middleware' => ['vendor']], function () {
   Route::post('/recharge_e_wallet','OrderController@post_recharge_e_wallet')->name('postRecharge');
 
     Route::get('shop/vendor/add-bonus/', 'UserDetailsController@addBonus')->name('vendorAddBonus');
+
+    Route::post('/cash_on_delivery/{subtotal}/{shipping}','OrderController@cash_on_delivery')->name('cash_on_delivery');
+    Route::get('/bank_payment/{subtotal}/{shipping}/{shipping_ad}/{billing_ad}','OrderController@storeBank')->name('bank_payment');
+    Route::post('bank_payment','OrderController@paymentPost')->name('paymentBank');
+    Route::post('/store-order', 'OrderController@store')->name('storeOrder');
+
+    Route::post('/address-store', 'UserDetailsController@storeAddress')->name('storeAddress');
+    Route::get('/address-delete/{id}', 'UserDetailsController@deleteAddress')->name('deleteAddress');
+    Route::post('/address/update', 'UserDetailsController@updateAddress')->name('updateAddress');
+
+    Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
+
+    Route::get('affiliator/order/active', 'OrderController@clientOrdersActive')->name('clientOrdersActive');
+    Route::get('affiliator/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
+    Route::get('affiliator/order/completed', 'OrderController@clientOrdersCompleted')->name('clientOrdersCompleted');
+    Route::get('affiliator/order/canceled', 'OrderController@clientOrdersCanceled')->name('clientOrdersCanceled');
+    Route::get('affiliator/order/view/{id}', 'OrderController@clientOrderView')->name('clientOrderView');
+    Route::get('affiliator/order/complete/{id}', 'OrderController@clientMarkDelivered')->name('clientMarkDelivered');
+    Route::get('downloadInvoice/{id}','OrderController@downloadInvoice');
+
+    Route::get('/add-cart/{product_slug}', 'CartController@create')->name('addCart');
+    Route::get('/checkout', 'CartController@checkout')->name('checkout');
+    Route::get('/my-cart', 'CartController@myCart')->name('myCart');
+    Route::get('/add-cart/{product_slug}', 'CartController@create')->name('addCart');
+    Route::get('/cart-update/{id}/{quantity}', 'CartController@update')->name('updateCart');
+    Route::get('/cart-remove/{id}', 'CartController@destroy')->name('removeCart');
 
     //Reset Password
     Route::get('vendor/reset/password', 'UserDetailsController@vendorResetPassword')->name('vendorResetPassword');

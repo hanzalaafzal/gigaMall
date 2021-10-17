@@ -5,7 +5,7 @@
 		<use xlink:href="#svg-plus"></use>
 	</svg>
 	<!-- /SVG PLUS -->
-    
+
 	<!-- SIDE MENU HEADER -->
 	<div class="side-menu-header">
 		<!-- USER QUICKVIEW -->
@@ -56,7 +56,7 @@
 		<!-- /DROPDOWN ITEM -->
 
 		<!-- DROPDOWN ITEM -->
-		@if(auth()->user()->permissions_id == 4)
+		@if(auth()->user()->permissions_id == 4 || auth()->user()->permissions_id == 5)
 		<li class="dropdown-item
 			<?php
 				if(Request::segment(2)=='order'){
@@ -101,7 +101,7 @@
                 Affiliate Data
             </a>
 		</li>
-		
+
 		<!-- DROPDOWN ITEM -->
 		<li class="dropdown-item
 			<?php

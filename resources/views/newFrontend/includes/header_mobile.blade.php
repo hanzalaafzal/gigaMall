@@ -20,7 +20,7 @@
         <div class="navigation__right">
             <div class="header__actions">
               @if(Auth::check())
-                @if(Auth::user()->permissions_id == 4)
+                @if(Auth::user()->permissions_id == 4 || Auth::user()->permissions_id == 5)
                 <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>{{count($carts)}}</i></span></a>
                       @if(count($carts)>0)
                         <div class="ps-cart__content">

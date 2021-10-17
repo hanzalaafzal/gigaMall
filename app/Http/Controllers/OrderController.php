@@ -441,10 +441,14 @@ class OrderController extends Controller
         return redirect()->route('clientOrdersActive')->with('doneMessage', 'Order Placed!');
     }
 
-    public function storeBank($subtotal, $shipping){
+    public function storeBank($subtotal, $shipping,Request $req){
+
+        $shipping_ad=$req->shipping_address;
+        $billing=$req->billing_address;
         $subtotal = $subtotal;
         $shipping = $shipping;
-        return view('frontEnd.orders.bank_payment',compact('subtotal','shipping'));
+        // return view('frontEnd.orders.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
+        return view('newFrontend.pages.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
     }
 
     public function paymentPost(Request $request){
@@ -558,12 +562,12 @@ class OrderController extends Controller
         }
         $order->save();
 
-        $request->shipping_address = $req->billing_address;
-        $request->billing_address = $req->shipping_address;
+        $shipping_address = $req->shipping_ad;
+        $billing_address = $req->billing_ad;
 
         //Order Addresses
-        $ship_add = AddressBook::find($request->shipping_address);
-        $bill_add = AddressBook::find($request->billing_address);
+        $ship_add = AddressBook::find($request->shipping_ad);
+        $bill_add = AddressBook::find($request->billing_ad);
 
         // Billing Address
         $bill_address = new OrderAddress();

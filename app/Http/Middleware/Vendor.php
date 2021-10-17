@@ -16,7 +16,7 @@ class Vendor
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->permissions_id == 3 || Auth::check() && Auth::user()->permissions_id == 4) {
+        if (Auth::check() && Auth::user()->permissions_id == 3 || Auth::check() && Auth::user()->permissions_id == 4 || Auth::check() && Auth::user()->permissions_id == 5) {
             return $next($request);
         }
         else{

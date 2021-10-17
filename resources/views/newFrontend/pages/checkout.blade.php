@@ -259,17 +259,22 @@
       var subtotal={!! $subtotal !!}
       var shipping={!! $ship_price !!}
 
+
     if(type=='easy'){
-      $('#checkForm').attr('action','{!! route("bank_payment",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').attr('action',`{!! route("bank_payment",[$subtotal,$ship_price,1,1]) !!}`)
+      $('#checkForm').attr('method','get')
       $('#checkForm').submit();
     }else if(type=='cod'){
       $('#checkForm').attr('action','{!! route("cash_on_delivery",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').attr('method','post')
       $('#checkForm').submit();
     }else if(type=='card'){
-      $('#checkForm').attr('action','{!! route("bank_payment",[$subtotal,$ship_price]) !!}')
+      $('#checkForm').attr('action',`{!! route("bank_payment",[$subtotal,$ship_price,1,1]) !!}`)
+      $('#checkForm').attr('method','get')
       $('#checkForm').submit();
     }else if(type=='wallet'){
       $('#checkForm').attr('action','{!! route("storeOrder") !!}')
+      $('#checkForm').attr('method','post')
       $('#checkForm').submit();
     }
   }
