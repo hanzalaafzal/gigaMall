@@ -3526,18 +3526,21 @@ header {
       .section .content .headline.simple:before, .dashboard-content .headline.simple:before {
         height: 66px; }
     .section .content .headline.buttons, .dashboard-content .headline.buttons {
-      height: 120px; }
+      height: auto; }
       .section .content .headline.buttons.two, .dashboard-content .headline.buttons.two {
         height: 175px; }
         .section .content .headline.buttons.two:before, .dashboard-content .headline.buttons.two:before {
           height: 175px; }
         .section .content .headline.buttons.two .button + .button, .dashboard-content .headline.buttons.two .button + .button {
           margin-top: 14px; }
-      .section .content .headline.buttons:before, .dashboard-content .headline.buttons:before {
-        height: 120px; }
+      
       .section .content .headline.buttons .button, .dashboard-content .headline.buttons .button {
         float: none;
-        margin: 0 auto; } }
+        margin: 0 auto; }
+      .c-button{
+        margin-top:10px !important
+        }
+       }
 @media screen and (max-width: 630px) {
   .section .content .headline, .dashboard-content .headline {
     height: 220px; }

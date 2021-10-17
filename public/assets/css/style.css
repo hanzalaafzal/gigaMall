@@ -16101,13 +16101,13 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   }
   .header--mobile .header__actions > * {
     margin: 0;
-    margin-right: 20px;
+    
   }
   .header--mobile .header__actions i {
     font-size: 24px;
   }
   .header--mobile .ps-block--user-header {
-    margin-right: 0;
+    margin-right: 20px;
   }
   .header--mobile .ps-block--user-header i {
     font-size: 24px;

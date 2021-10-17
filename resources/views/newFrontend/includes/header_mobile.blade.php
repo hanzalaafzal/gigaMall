@@ -19,6 +19,21 @@
         <div class="navigation__left"><a class="ps-logo" href="{{url('/')}}"><img src="{{url('/frontEnd/images/e_new_logo.png')}}" style="height:60px" alt="" /></a></div>
         <div class="navigation__right">
             <div class="header__actions">
+              <div class="ps-block--user-header">
+                @if(Auth::check())
+                  <div class="ps-block__left" style=""><a href="{{route('dashboard')}}"><i class="icon-user"></i></a></div>
+                  <div class="ps-block__right"><a href="{{route('dashboard')}}">Dashboard</a>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                  </div>
+                @else
+                <div class="ps-block__left"><a href="{{route('dashboard')}}"><i class="icon-user"></i></a></div>
+                <div class="ps-block__right"><a href="{{route('login')}}">Login</a><a href="{{route('register')}}">Register</a></div>
+                @endif
+              </div>
+
               @if(Auth::check())
                 @if(Auth::user()->permissions_id == 4 || Auth::user()->permissions_id == 5)
                 <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-bag2"></i><span><i>{{count($carts)}}</i></span></a>
@@ -45,20 +60,7 @@
                 @endif
             @endif
 
-                <div class="ps-block--user-header">
-                  @if(Auth::check())
-                    <div class="ps-block__left" style=""><a href="{{route('dashboard')}}"><i class="icon-user"></i></a></div>
-                    <div class="ps-block__right"><a href="{{route('dashboard')}}">Dashboard</a>
-                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                          {{ csrf_field() }}
-                      </form>
-                      <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                    </div>
-                  @else
-                  <div class="ps-block__left"><a href="{{route('dashboard')}}"><i class="icon-user"></i></a></div>
-                  <div class="ps-block__right"><a href="{{route('login')}}">Login</a><a href="{{route('register')}}">Register</a></div>
-                  @endif
-                </div>
+
             </div>
         </div>
     </div>

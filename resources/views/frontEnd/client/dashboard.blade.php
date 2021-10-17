@@ -34,17 +34,19 @@
 	<!-- HEADLINE -->
 	<div class="headline buttons primary">
 	    <h4>Account & Addresses</h4>
-	    <a href="{{route('checkout')}}"  class="button mid-short primary">Go To Checkout</a>
-	    <a href="{{route('myCart')}}"  class="button mid-short secondary">Go To Cart</a>
-	    <a href="{{route('hellll')}}"  class="button mid-short primary">Recharge E-Wallet</a>  
-	    @php
-	    	$wallet = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
-	    @endphp
-	    @if($wallet > 0)
-	    	<a href="/withdraw_amount" class="button mid-short secondary">Withdraw Wallet</a>
-    	@else
-	        <a href="#" class="button mid-short secondary">Empty Wallet</a>
-	    @endif
+			<div class="row" style="margin-bottom:10px">
+				<a href="{{route('checkout')}}"  class="button mid-short primary">Go To Checkout</a>
+				<a href="{{route('myCart')}}"  class="button mid-short secondary c-button">Go To Cart</a>
+				<a href="{{route('hellll')}}"  class="button mid-short primary c-button">Recharge E-Wallet</a>
+				@php
+					$wallet = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
+				@endphp
+				@if($wallet > 0)
+					<a href="/withdraw_amount" class="button mid-short secondary c-button">Withdraw Wallet</a>
+				@else
+						<a href="#" class="button mid-short secondary c-button">Empty Wallet</a>
+				@endif
+			</div>
 	</div>
 	<!-- /HEADLINE -->
 
