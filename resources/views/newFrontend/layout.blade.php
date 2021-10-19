@@ -13,18 +13,23 @@
     <div class="ps-site-overlay"></div>
     @include('newFrontend.includes.mobile_cart')
     @include('newFrontend.includes.mobile_navigation')
-    <div class="navigation--list">
+    <div class="navigation--list" style="background-color:#20c997">
         <div class="navigation__content">
           <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
-            <i class="icon-menu"></i>
-            <span> Menu</span>
+            <i class="icon-menu" style="color:white"></i>
+            <span style="color:white"> Menu</span>
          </a>
          <a class="navigation__item" href="{{route('dashboard')}}">
-            <i class="icon-user"></i>
-          <span> My account</span>
+            <i class="icon-user" style="color:white"></i>
+          <span style="color:white"> My account</span>
         </a>
           <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
-          <i class="icon-magnifier"></i><span> Search</span></a><a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-bag2"></i><span> Cart</span></a></div>
+          <i class="icon-magnifier" style="color:white">
+          </i><span style="color:white"> Search</span></a>
+          <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile">
+            <i class="icon-bag2" style="color:white"></i>
+            <span style="color:white"> Cart</span>
+          </a></div>
     </div>
     <div class="ps-panel--sidebar" id="search-sidebar">
     <div class="ps-panel__header">

@@ -1,4 +1,4 @@
-<header class="header header--mobile" data-sticky="true">
+<header class="header header--mobile"  style="background-color:#ffffff !important;box-shadow:5px 4px 18px #88889f;">
     <div class="header__top">
         <div class="header__left">
             <p>Welcome to E-Bazarr
@@ -66,7 +66,7 @@
     </div>
     <div class="ps-search--mobile">
         <form class="ps-form--search-mobile" action="{{route('searchProduct')}}" method="get">
-            <div class="form-group--nest">
+            <div class="form-group--nest" style="border:1px solid black">
                 <input class="form-control" name="keyword" type="text" placeholder="Search something..." />
                 <button><i class="icon-magnifier"></i></button>
             </div>

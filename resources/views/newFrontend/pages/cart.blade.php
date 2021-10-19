@@ -2,15 +2,7 @@
 
 @section('main_content')
 <div class="ps-page--simple">
-    <div class="ps-breadcrumb">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop-default.html">Shop</a></li>
-                <li>Whishlist</li>
-            </ul>
-        </div>
-    </div>
+
     <div class="ps-section--shopping ps-shopping-cart">
         <div class="container">
             <div class="ps-section__header">
