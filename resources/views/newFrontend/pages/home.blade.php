@@ -1,5 +1,24 @@
 @extends('newFrontend.layout')
 
+@push('css')
+<style media="screen">
+.ps-deal-of-day .ps-section__header {
+  margin-bottom: 65px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  background-color: #21a767;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}
+</style>
+@endpush
+
 @section('main_content')
 <div id="homepage-4">
     <div class="ps-home-banner">
