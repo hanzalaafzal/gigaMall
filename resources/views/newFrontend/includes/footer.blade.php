@@ -59,8 +59,8 @@
                 <aside class="widget widget_footer">
                     <h4 class="widget-title">Help and FAQs</h4>
                     <ul class="ps-list--link">
-                        <li><a href="{{route('helpSupport')}}}">Help Center</a></li>
-                        <li><a href="{{route('helpSupport')}}}">Faqs</a></li>
+                        <li><a href="{{route('helpSupport')}}">Help Center</a></li>
+                        <li><a href="{{route('helpSupport')}}">Faqs</a></li>
                         <li><a href="#">Terms and Conditions</a></li>
 
                     </ul>
