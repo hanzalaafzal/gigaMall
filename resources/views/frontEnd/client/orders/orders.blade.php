@@ -94,12 +94,12 @@
 
             @php
                 $now=Carbon\Carbon::now();
-                $diff=$now->diffInSeconds($order->created_at);
+                $diff=$now->diffInMinutes($order->created_at);
             @endphp
 
             @if(Route::currentRouteName()=='clientOrdersActive')
 
-              @if($diff < 30)
+              @if($diff < 55)
               <div class="purchase-item-download">
                   <a href="{{route('clientOrderView',$order->id)}}" style="margin-top:-10px" class="button primary">View</a>
                   <a href="{{route('cancelOrder',$order->order_number)}}" onclick="return confirm('Do you wish to cancel this order?')" style="margin-top:8px;color:white;background-color:red" class="button danger">Cancel</a>
