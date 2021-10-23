@@ -100,10 +100,12 @@ class GeneralController extends Controller
 		return view('newFrontend.pages.how-to-shop');
 	}
 	public function howToBuy(){
-		return view('frontEnd.general.how-to-buy');
+		// return view('frontEnd.general.how-to-buy');
+			return view('newFrontend.pages.how-to-buy');
 	}
 	public function howToSell(){
-		return view('frontEnd.general.how-to-sell');
+		// return view('frontEnd.general.how-to-sell');
+		return view('newFrontend.pages.how-to-sell');
 	}
 
 	 public function shopView($slug){

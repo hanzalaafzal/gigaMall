@@ -5356,8 +5356,8 @@ textarea.form-control {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   background-color: #ffffff;
   border: 2px solid #20c997;
   border-radius: 50%;
@@ -16101,7 +16101,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   }
   .header--mobile .header__actions > * {
     margin: 0;
-    
+
   }
   .header--mobile .header__actions i {
     font-size: 24px;
