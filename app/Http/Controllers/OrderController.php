@@ -247,29 +247,41 @@ class OrderController extends Controller
           return view('newFrontend.pages.recharge_wallet');
     }
     public function post_recharge_e_wallet(Request $request){
-         \Stripe\Stripe::setApiKey ( 'sk_test_51H2omrEBrijIcOQ0FrcrRTJ0oFUOuaBvrr8r54VHpukmRzwHQ8HVDxGgMzp2ktmGY9SPzT9Bf0mp4SkuHCW1o9ZP00DHfHaVxj' );
 
-            $amount = $request->amount * 100;
-            try {
-                \Stripe\Charge::create ( array (
-                        "amount" => $amount,
-                        "currency" => "PKR",
-                        "source" => $request->input( 'stripeToken' ), // obtained with Stripe.js
-                        "description" => "Test payment."
-                ) );
+      if($request->method=="card"){
+        \Stripe\Stripe::setApiKey ( 'sk_test_51H2omrEBrijIcOQ0FrcrRTJ0oFUOuaBvrr8r54VHpukmRzwHQ8HVDxGgMzp2ktmGY9SPzT9Bf0mp4SkuHCW1o9ZP00DHfHaVxj' );
 
-             $prev_amount = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
-             $prev_amount = $prev_amount + $request->amount;
-             DB::table('wallets')->where('user_id',auth()->user()->id)->update([
-                'amount' => $prev_amount
-             ]);
-                return redirect('dashboard')->with('doneMessage','Successfully Recharged');
+           $amount = $request->amount * 100;
+           try {
+               \Stripe\Charge::create ( array (
+                       "amount" => $amount,
+                       "currency" => "PKR",
+                       "source" => $request->input( 'stripeToken' ), // obtained with Stripe.js
+                       "description" => "Test payment."
+               ) );
 
-            } catch ( \Exception $e ) {
-                // Session::flash ( 'message', "Error! Please Try again." );
+            $prev_amount = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
+            $prev_amount = $prev_amount + $request->amount;
+            DB::table('wallets')->where('user_id',auth()->user()->id)->update([
+               'amount' => $prev_amount
+            ]);
+               return redirect('dashboard')->with('doneMessage','Successfully Recharged');
 
-                return redirect()->back();
-            }
+           } catch ( \Exception $e ) {
+               // Session::flash ( 'message', "Error! Please Try again." );
+
+               return redirect()->back();
+           }
+      }
+      // else{
+      //     $prev_amount = DB::table('wallets')->where('user_id',auth()->user()->id)->pluck('amount')->first();
+      //     $prev_amount = $prev_amount + $request->amount;
+      //     DB::table('wallets')->where('user_id',auth()->user()->id)->update([
+      //        'amount' => $prev_amount
+      //     ]);
+      //      return redirect('dashboard')->with('doneMessage','Successfully Recharged');
+      // }
+
 
     }
 

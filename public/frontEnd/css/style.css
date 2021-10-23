@@ -1208,7 +1208,7 @@ header, .menu-bar, .banner, #services,
     transition: all .15s ease;
     border-left: 0px solid #00d7b3; }
     .dropdown.hover-effect > .dropdown-item > a:hover {
-      border-left: 6px solid #00d7b3; }
+      border-left: 6px solid #2b373a }
   .dropdown.hover-effect.secondary > .dropdown-item > a {
     transition: all .15s ease;
     border-left: 0px solid #1396e1; }
@@ -1313,13 +1313,13 @@ header, .menu-bar, .banner, #services,
           .dropdown.dark .dropdown-item:hover > a .svg-arrow {
             fill: #fff; }
           .dropdown.dark .dropdown-item:hover > a .sl-icon {
-            color: #00d7b3; }
+            color: #2b373a; }
       .dropdown.dark .dropdown-item > a {
         padding-left: 30px;
         color: white;
         transition: all .2s ease-in; }
       .dropdown.dark .dropdown-item:hover > a {
-          color: #00d7b3; }
+          color: #2b373a }
       .dropdown.dark .dropdown-item > a .svg-arrow {
           transition: fill .2s ease-in; }
   .dropdown.no-hover .dropdown-item {
@@ -3533,7 +3533,7 @@ header {
           height: 175px; }
         .section .content .headline.buttons.two .button + .button, .dashboard-content .headline.buttons.two .button + .button {
           margin-top: 14px; }
-      
+
       .section .content .headline.buttons .button, .dashboard-content .headline.buttons .button {
         float: none;
         margin: 0 auto; }

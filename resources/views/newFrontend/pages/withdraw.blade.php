@@ -48,13 +48,13 @@
                                 </ul>
                                 <div class="ps-tabs">
                                     <div class="ps-tab active" id="visa">
-                                      <form role="form" action='/withdraw_amount' method="post" class="ps-form--checkout require-validation"
+                                      <form role="form" action='withdraw_amount' method="post" class="ps-form--checkout require-validation"
                                                                        data-cc-on-file="false"
                                                                       data-stripe-publishable-key="pk_test_51H2omrEBrijIcOQ027RdCxqbHjgHG7kQgdEmhrX8A9N9TzO8uqOzup9mf10Q2d9Hid3qMo87UOfymhfPoceLTS5F00oXrc9IhR"
                                                                       id="payment-form">
                                                                       @csrf
 
-                                          <input type="hidden" name="amount" value="$subtotal">
+
                                           <div class="form-group required">
                                               <label>Name on card</label>
                                               <input class="form-control" type="text" name="name" required autocomplete='off'>
@@ -113,7 +113,7 @@
                                                                     id="payment-form">
                                                                     @csrf
 
-                                        <input type="hidden" name="amount" value="$subtotal">
+
                                         <div class="form-group required">
                                             <label>Name</label>
                                             <input class="form-control" type="text" name="name" required autocomplete='off'>
@@ -122,7 +122,7 @@
 
                                           <div class="form-group card required">
                                               <label>Phone Number</label>
-                                              <input class="form-control card-number" name="phone_number" type="number" min="0" autocomplete='off' required>
+                                              <input class="form-control card-number" name="phone_number" type="text" min="0" autocomplete='off' required>
                                           </div>
 
                                           <div class="form-group card required">
