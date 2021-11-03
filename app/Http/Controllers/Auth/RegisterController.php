@@ -89,10 +89,12 @@ class RegisterController extends Controller
     {
         $status = true;
         if ($data['user_type'] == 1) {
+          //shop keeper
             $userType = 3;
             $status = false;
         }
         if ($data['user_type'] == 2) {
+          //customer
             $userType = 4;
         }
         if ($data['user_type'] == 3) {

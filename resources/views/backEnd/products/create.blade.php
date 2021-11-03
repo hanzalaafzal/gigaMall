@@ -1,23 +1,8 @@
 
 @extends('backEnd.layout')
 
-@section('dashboard')
-<style type="text/css">
-	.pack-boxes .radio{
-		position: relative !important;
-	    top: 30px !important;
-	    z-index: 1;
-	    left: 7px;
-	}
-	.remove-me{
-	position: relative;
-    bottom: 39px;
-    float: right;
-	}
-    input[type="radio"], input[type="checkbox"] {
-	    display: block;
-	}
-</style>
+@section('content')
+
 <!-- DASHBOARD CONTENT -->
 <div class="dashboard-content">
     <!-- HEADLINE -->
@@ -81,7 +66,7 @@
 				   Daily Sale
 				  </label>
 				  <input class="form-check-input" type="checkbox" name="daily_sale" id="flexCheckDefault">
-				 
+
 				</div>
 				<!-- /INPUT CONTAINER -->
 
@@ -181,7 +166,7 @@
 	         <div class="plain-text-box-item">
 	            <p class="text-header">Price:</p>
 	            <p>Enter the price of your product.</p>
-	          
+
 	         </div>
 	         <!-- /PLAIN TEXT BOX ITEM -->
 	         <!-- PLAIN TEXT BOX ITEM -->
@@ -290,8 +275,8 @@
         $(addto).after(newInput);
         $(addRemove).after(removeButton);
         $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-        $("#count").val(next);  
-        
+        $("#count").val(next);
+
             $('.remove-me').click(function(e){
                 e.preventDefault();
                 var fieldNum = this.id.charAt(this.id.length-1);

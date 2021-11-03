@@ -39,19 +39,20 @@
 
                                @csrf
                                <div class="form-group">
-                                   <input class="form-control" type="email" id="username" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="off">
-                               </div>
-                               <div class="form-group">
-                                   <input class="form-control" type="user_name" id="username" name="user_name" value="{{ old('user_name') }}" placeholder="Username" required autocomplete="off"> 
-                               </div>
-                               <div class="form-group">
                                     <select class="form-control" name="user_type" id="user_type" required>
                                       <option value="" disabled>Select User Type</option>
                                       <option value="1">Shop Keeper</option>
                                       <option value="2">Customer</option>
-                                      <option value="3">Affiliator</option>
+                                      <option value="3" style="color:lightgray" disabled>Affiliator (soon)</option>
                                     </select>
                                </div>
+                               <div class="form-group">
+                                   <input class="form-control" type="email" id="username" name="email" value="{{ old('email') }}" placeholder="Email" required autocomplete="off">
+                               </div>
+                               <div class="form-group">
+                                   <input class="form-control" type="user_name" id="username" name="user_name" value="{{ old('user_name') }}" placeholder="Username" required autocomplete="off">
+                               </div>
+
                                <div class="form-group">
                                    <input class="form-control" type="password" id="password" name="password" placeholder="password">
                                </div>

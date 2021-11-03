@@ -1,5 +1,15 @@
 @extends('newFrontend.layout')
 
+@push('css')
+<style media="screen">
+  .form-group{
+    margin-bottom: 1rem;
+  }
+  .form-control {
+    height: 30px;
+  }
+</style>
+@endpush
 
 @section('main_content')
 <div class="ps-page--simple">
@@ -29,7 +39,7 @@
                               <div class="form-group">
                                 <form id="coupon-code-form" method="POST" action="{{route('couponsRedeem')}}" accept-charset="UTF-8" enctype="multipart/form-data">
                                   @csrf
-                                  <input type="text" class="form-control" style="width:60%" name="coupon_code" placeholder="Enter your coupon code..." reqired>
+                                  <input type="text" class="form-control" style="width:60%" name="coupon_code" placeholder="Enter your coupon code..." required>
                                   <br>
                                   <button type="submit" class="ps-btn btn-sm">Apply Coupon Code</button>
                                 </form>
@@ -70,22 +80,49 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group" id="billing-address-container">
-                                  <h5>{{Auth::user()->addressBooksDefault->full_name}}</h5>
-                                  <h5>{{Auth::user()->addressBooksDefault->phone}}</h5>
-                                  <h5>Country: {{Auth::user()->addressBooksDefault->countries->title_en}}</h5>
-                                  <h5>Zip:   {{Auth::user()->addressBooksDefault->zip_code}}</h5>
-                                  <h5>{{Auth::user()->addressBooksDefault->address}}</h5>
+                                <div class="row">
+                                  <div class="form-group col-md-4">
+                                    <label>Name*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->full_name}}" id="bill_name" name="bill_name" placeholder="" required>
+                                  </div>
+
+                                  <div class="form-group col-md-4">
+                                    <label>Phone*</label>
+                                    <input type="text" class="form-control" id="bill_phone"  name="bill_phone" value="{{Auth::user()->addressBooksDefault->phone}}" placeholder="0300000000" required pattern="^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-8">
+                                    <label>Address*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->address}}" id="bill_address" name="bill_address" required>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-4">
+                                    <label>Country*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->countries->title_en}}" id="bill_country" name="bill_country" placeholder="" required>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label>City*</label>
+                                    <input type="text" class="form-control"  name="bill_city" required>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-8">
+                                    <label>Zip/Postal Code*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->zip_code}}" id="bill_zip" name="bill_zip" required>
+                                  </div>
                                 </div>
 
 
+
                                 <h3 class="ps-form__heading">Shipping Details</h3>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                   <div class="ps-checkbox">
                                       <input class="form-control" type="checkbox" id="same_add" name="same_add">
                                       <label for="same_add">Use Billing Address for Shipping?</label>
                                   </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group" id="ship-address">
                                       <select class="form-control" name="shipping_address" id="shipping_address" required style="width:60%">
                                         <option value="{{Auth::user()->addressBooksDefault->id}}" selected>{{Auth::user()->addressBooksDefault->address}}</option>
@@ -94,15 +131,39 @@
                                         @endforeach
                                       </select>
                                 </div>
+                                <div class="row">
+                                  <div class="form-group col-md-4">
+                                    <label>Name*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->full_name}}" id="ship_name" name="ship_name" placeholder="" required>
+                                  </div>
 
-                                <div class="form-group" id="shipping-address-container">
-                                  <h5>{{Auth::user()->addressBooksDefault->full_name}}</h5>
-                                  <h5>{{Auth::user()->addressBooksDefault->phone}}</h5>
-                                  <h5>Country: {{Auth::user()->addressBooksDefault->countries->title_en}}</h5>
-                                  <h5>Zip:   {{Auth::user()->addressBooksDefault->zip_code}}</h5>
-                                  <h5>{{Auth::user()->addressBooksDefault->address}}</h5>
+                                  <div class="form-group col-md-4">
+                                    <label>Phone*</label>
+                                    <input type="text" class="form-control" id="ship_phone"  name="ship_phone" value="{{Auth::user()->addressBooksDefault->phone}}" placeholder="0300000000" required pattern="^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$">
+                                  </div>
                                 </div>
-
+                                <div class="row">
+                                  <div class="form-group col-md-8">
+                                    <label>Address*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->address}}" id="ship_address" name="ship_address" required>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-4">
+                                    <label>Country*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->countries->title_en}}" id="ship_country" name="ship_country" placeholder="" required>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label>City*</label>
+                                    <input type="text" class="form-control"  name="ship_city" required>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-8">
+                                    <label>Zip/Postal Code*</label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->addressBooksDefault->zip_code}}" id="ship_zip" name="ship_zip" required>
+                                  </div>
+                                </div>
 
                             </div>
                         </div>
@@ -216,22 +277,25 @@
 
 @push('jss')
 <script type="text/javascript">
-    $('#same_add').on('click',function(){
-        var ckbox = $('#same_add');
-        if (ckbox.is(':checked')) {
-            $('#ship-address').css('display','none');
-        } else {
-            $('#ship-address').css('display','unset');
-        }
-    });
+    // $('#same_add').on('click',function(){
+    //     var ckbox = $('#same_add');
+    //     if (ckbox.is(':checked')) {
+    //         $('#ship-address').css('display','none');
+    //     } else {
+    //         $('#ship-address').css('display','unset');
+    //     }
+    // });
 
     $('#shipping_address').on('change',function(){
       var id = $('#shipping_address').val();
       var route = 'get-address';
       var url =  {!! json_encode(url('/')) !!}+'/'+route+'/'+id;
       $.get(url, function(result){
-        $('#shipping-address-container').empty();
-        $('#shipping-address-container').append('<h5>'+result['full_name']+'</h5>'+'<h5>'+result['phone']+'</h5>'+'<h5>Country: '+result['country']+', Zipe Code: '+result['zip_code']+'</h5>'+'<h5>'+result['address']+'</h5>');
+        $('#ship_name').val(result['full_name']);
+        $('#ship_phone').val(result['phone']);
+        $('#ship_address').val(result['address']);
+        $('#ship_country').val(result['country']);
+        $('#ship_zip').val(result['zip_code']);
       });
     });
 
@@ -240,8 +304,11 @@
       var route = 'get-address';
       var url =  {!! json_encode(url('/')) !!}+'/'+route+'/'+id;
       $.get(url, function(result){
-        $('#billing-address-container').empty();
-        $('#billing-address-container').append('<h5>'+result['full_name']+'</h5>'+'<h5>'+result['phone']+'</h5>'+'<h5>Country: '+result['country']+', Zipe Code: '+result['zip_code']+'</h5>'+'<h5>'+result['address']+'</h5>');
+        $('#bill_name').val(result['full_name']);
+        $('#bill_phone').val(result['phone']);
+        $('#bill_address').val(result['address']);
+        $('#bill_country').val(result['country']);
+        $('#bill_zip').val(result['zip_code']);
       });
     });
 </script>

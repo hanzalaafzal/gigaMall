@@ -3536,7 +3536,7 @@ header {
 
       .section .content .headline.buttons .button, .dashboard-content .headline.buttons .button {
         float: none;
-        margin: 0 auto; }
+        margin: 8px auto; }
       .c-button{
         margin-top:10px !important
         }
@@ -5505,7 +5505,7 @@ header {
 .db-side-menu-handler {
   width: 70px;
   height: 69px;
-  background-color: #2b373a;
+  background-color: #00d7b3;
   position: absolute;
   top: 0;
   left: 0;

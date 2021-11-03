@@ -47,12 +47,13 @@ class OrderController extends Controller
         $categories = Categories::all();
         $product_types = ProductType::all();
 
-            return view('frontEnd.vendor.products.create', compact('categories', 'shops', 'product_types'));
+            // return view('frontEnd.vendor.products.create', compact('categories', 'shops', 'product_types'));
+            return view('backEnd.products.create_new', compact('categories', 'shops', 'product_types'));
     }
 
      public function storeProduct(Request $request)
     {
-
+        //dd($request->all());
         $this->validate($request, [
             'title' => 'required|max:190',
             'description' => 'required',
@@ -135,8 +136,9 @@ class OrderController extends Controller
       $order_address=DB::table('order_addresses')->where('order_id','=',$order[0]->id)->get();
 
       $order_products=DB::table('order_products')->where('order_id',$order[0]->id)->join('products','order_products.product_id','=','products.id')->join('users','order_products.vendor_id','=','users.id')
-      ->join('shops','users.id','=','shops.user_id')->select("*",'order_products.quantity AS qty')->get();
+      ->select("*",'order_products.quantity AS qty')->get();
 
+      //dd($order_products);
 
 
       return view('backEnd.details.single_order',compact('order','order_address','order_products'));
@@ -288,7 +290,7 @@ class OrderController extends Controller
     public function cash_on_delivery($subtotal, $shipping,Request $req){
 
 
-
+      dd(session()->all());
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
         // Calculate Prices
@@ -382,36 +384,26 @@ class OrderController extends Controller
         // Billing Address
         $bill_address = new OrderAddress();
         $bill_address->order_id = $order->id;
-        $bill_address->full_name = $bill_add->full_name;
-        $bill_address->phone = $bill_add->phone;
-        $bill_address->country = $bill_add->countries->title_en;
-        $bill_address->address = $bill_add->address;
-        $bill_address->zip_code = $bill_add->zip_code;
+        $bill_address->full_name = $req->bill_name;
+        $bill_address->phone = $req->bill_phone;
+        $bill_address->country = $req->bill_country;
+        $bill_address->address = $req->bill_address;
+        $bill_address->zip_code = $req->bill_zip;
+        $bill_address->city = $req->bill_city;
         $bill_address->type = 'Billing';
         $bill_address->save();
 
-        // Shipping Address
-        if (!empty($request->same_add)) {
-            $bill_address = new OrderAddress();
-            $bill_address->order_id = $order->id;
-            $bill_address->full_name = $bill_add->full_name;
-            $bill_address->phone = $bill_add->phone;
-            $bill_address->country = $bill_add->countries->title_en;
-            $bill_address->address = $bill_add->address;
-            $bill_address->zip_code = $bill_add->zip_code;
-            $bill_address->type = 'Shipping';
-            $bill_address->save();
-        } else {
-            $ship_address = new OrderAddress();
-            $ship_address->order_id = $order->id;
-            $ship_address->full_name = $ship_add->full_name;
-            $ship_address->phone = $ship_add->phone;
-            $ship_address->country = $ship_add->countries->title_en;
-            $ship_address->address = $ship_add->address;
-            $ship_address->zip_code = $ship_add->zip_code;
-            $ship_address->type = 'Shipping';
-            $ship_address->save();
-        }
+        $ship_address = new OrderAddress();
+        $ship_address->order_id = $order->id;
+        $ship_address->full_name = $req->ship_name;
+        $ship_address->phone = $req->ship_phone;
+        $ship_address->country = $req->ship_country;
+        $ship_address->address = $req->ship_address;
+        $ship_address->zip_code = $req->ship_zip;
+        $ship_address->city = $req->ship_city;
+        $ship_address->type = 'Shipping';
+        $ship_address->save();
+
 
 
         //Order Products Items
@@ -455,10 +447,30 @@ class OrderController extends Controller
 
     public function storeBank($subtotal, $shipping,Request $req){
 
+
         $shipping_ad=$req->shipping_address;
         $billing=$req->billing_address;
         $subtotal = $subtotal;
         $shipping = $shipping;
+
+        $bill=array();
+        $bill['name']=$req->bill_name;
+        $bill['phone']=$req->bill_phone;
+        $bill['country']=$req->bill_country;
+        $bill['city']=$req->bill_city;
+        $bill['address']=$req->bill_address;
+        $bill['zip']=$req->bill_zip;
+
+        $ship=array();
+        $ship['name']=$req->ship_name;
+        $ship['phone']=$req->ship_phone;
+        $ship['country']=$req->ship_country;
+        $ship['city']=$req->ship_city;
+        $ship['address']=$req->ship_address;
+        $ship['zip']=$req->ship_zip;
+
+        session()->put('billing',$bill);
+        session()->put('shipping',$ship);
         // return view('frontEnd.orders.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
         return view('newFrontend.pages.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
     }
@@ -584,36 +596,25 @@ class OrderController extends Controller
         // Billing Address
         $bill_address = new OrderAddress();
         $bill_address->order_id = $order->id;
-        $bill_address->full_name = $bill_add->full_name;
-        $bill_address->phone = $bill_add->phone;
-        $bill_address->country = $bill_add->countries->title_en;
-        $bill_address->address = $bill_add->address;
-        $bill_address->zip_code = $bill_add->zip_code;
+        $bill_address->full_name = session('bill.name');
+        $bill_address->phone = session('bill.phone');
+        $bill_address->country = session('bill.country');
+        $bill_address->address = session('bill.address');
+        $bill_address->zip_code = session('bill.zip');
+        $bill_address->city = session('bill.city');
         $bill_address->type = 'Billing';
         $bill_address->save();
 
-        // Shipping Address
-        if (!empty($request->same_add)) {
-            $bill_address = new OrderAddress();
-            $bill_address->order_id = $order->id;
-            $bill_address->full_name = $bill_add->full_name;
-            $bill_address->phone = $bill_add->phone;
-            $bill_address->country = $bill_add->countries->title_en;
-            $bill_address->address = $bill_add->address;
-            $bill_address->zip_code = $bill_add->zip_code;
-            $bill_address->type = 'Shipping';
-            $bill_address->save();
-        } else {
-            $ship_address = new OrderAddress();
-            $ship_address->order_id = $order->id;
-            $ship_address->full_name = $ship_add->full_name;
-            $ship_address->phone = $ship_add->phone;
-            $ship_address->country = $ship_add->countries->title_en;
-            $ship_address->address = $ship_add->address;
-            $ship_address->zip_code = $ship_add->zip_code;
-            $ship_address->type = 'Shipping';
-            $ship_address->save();
-        }
+        $ship_address = new OrderAddress();
+        $ship_address->order_id = $order->id;
+        $ship_address->full_name = $req->ship_name;
+        $ship_address->phone = $req->ship_phone;
+        $ship_address->country = $req->ship_country;
+        $ship_address->address = $req->ship_address;
+        $ship_address->zip_code = $req->ship_zip;
+        $ship_address->city = $req->ship_city;
+        $ship_address->type = 'Shipping';
+        $ship_address->save();
 
 
         //Order Products Items
@@ -657,7 +658,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-       // dd($request);
+        dd($request->all());
          //echo "order store";die();
         $this->validate($request, [
             'billing_address' => 'required',
@@ -755,36 +756,25 @@ class OrderController extends Controller
         // Billing Address
         $bill_address = new OrderAddress();
         $bill_address->order_id = $order->id;
-        $bill_address->full_name = $bill_add->full_name;
-        $bill_address->phone = $bill_add->phone;
-        $bill_address->country = $bill_add->countries->title_en;
-        $bill_address->address = $bill_add->address;
-        $bill_address->zip_code = $bill_add->zip_code;
+        $bill_address->full_name = $req->bill_name;
+        $bill_address->phone = $req->bill_phone;
+        $bill_address->country = $req->bill_country;
+        $bill_address->address = $req->bill_address;
+        $bill_address->zip_code = $req->bill_zip;
+        $bill_address->city = $req->bill_city;
         $bill_address->type = 'Billing';
         $bill_address->save();
 
-        // Shipping Address
-        if (!empty($request->same_add)) {
-            $bill_address = new OrderAddress();
-            $bill_address->order_id = $order->id;
-            $bill_address->full_name = $bill_add->full_name;
-            $bill_address->phone = $bill_add->phone;
-            $bill_address->country = $bill_add->countries->title_en;
-            $bill_address->address = $bill_add->address;
-            $bill_address->zip_code = $bill_add->zip_code;
-            $bill_address->type = 'Shipping';
-            $bill_address->save();
-        } else {
-            $ship_address = new OrderAddress();
-            $ship_address->order_id = $order->id;
-            $ship_address->full_name = $ship_add->full_name;
-            $ship_address->phone = $ship_add->phone;
-            $ship_address->country = $ship_add->countries->title_en;
-            $ship_address->address = $ship_add->address;
-            $ship_address->zip_code = $ship_add->zip_code;
-            $ship_address->type = 'Shipping';
-            $ship_address->save();
-        }
+        $ship_address = new OrderAddress();
+        $ship_address->order_id = $order->id;
+        $ship_address->full_name = $req->ship_name;
+        $ship_address->phone = $req->ship_phone;
+        $ship_address->country = $req->ship_country;
+        $ship_address->address = $req->ship_address;
+        $ship_address->zip_code = $req->ship_zip;
+        $ship_address->city = $req->ship_city;
+        $ship_address->type = 'Shipping';
+        $ship_address->save();
 
 
         //Order Products Items

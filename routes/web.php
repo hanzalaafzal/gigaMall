@@ -39,8 +39,8 @@ Route::get('/admin', function () {
 Route::Group(['prefix' => env('BACKEND_PATH')], function () {
     Route::Group(['middleware' => ['admin']], function () {
 
-        Route::get('/product/create', 'OrderController@productCreate')->name('productCreate');
-        Route::post('storeProduct', 'OrderController@storeProduct');
+        Route::get('/prod/create', 'OrderController@productCreate')->name('productCreateadmin');
+        Route::post('storeProduct', 'OrderController@storeProduct')->name('storeProduct');
         // Route::get('/product_create', 'ProductController@create');
         // Route::post('/product/store', 'ProductController@store');
 
@@ -592,7 +592,7 @@ Route::Group(['middleware' => ['vendor']], function () {
 
     Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
 
-    Route::get('affiliator/order/active', 'OrderController@clientOrdersActive')->name('clientOrdersActive');
+    Route::get('affiliator/order/active', 'OrderController@clientOrdersActive')->name('affiliatorOrdersActive');
     Route::get('affiliator/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
     Route::get('affiliator/order/completed', 'OrderController@clientOrdersCompleted')->name('clientOrdersCompleted');
     Route::get('affiliator/order/canceled', 'OrderController@clientOrdersCanceled')->name('clientOrdersCanceled');

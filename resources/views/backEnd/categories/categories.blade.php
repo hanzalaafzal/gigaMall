@@ -50,8 +50,8 @@
             <div class="form-group row">
                <label for="title_ar" class="col-sm-2 form-control-label">Choose Affilate Profit Percentage</label>
                <div class="col-sm-10">
-                   <input placeholder="" class="form-control has-value" id="slug" required="" value ="0" name="profit_percentage" type="number" >
-                  <small>Number from 0-100</small>
+                   <input placeholder="0.006" class="form-control has-value" id="slug" required="" value ="0" name="profit_percentage" type="number" step="any" >
+                  <small>Number from 0.000-100</small>
                </div>
             </div>
 

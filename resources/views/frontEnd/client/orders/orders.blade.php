@@ -8,6 +8,9 @@
         font-weight: 600;
     margin-right: 30px;
   }
+  .purchase-item {
+    height: auto;
+  }
 </style>
 <!-- DASHBOARD CONTENT -->
 <div class="dashboard-content">
@@ -59,7 +62,12 @@
         <!-- /PURCHASES LIST HEADER -->
 
         <!-- PURCHASE ITEM -->
-        @foreach($orders as $order)
+
+        @php
+          $counter=0;
+        @endphp
+
+        @foreach($orders as $key=>$order)
           <?php
             $product_price = 0;
             $shipping_price = 0;
@@ -99,10 +107,16 @@
 
             @if(Route::currentRouteName()=='clientOrdersActive')
 
-              @if($diff < 55)
-              <div class="purchase-item-download">
-                  <a href="{{route('clientOrderView',$order->id)}}" style="margin-top:-10px" class="button primary">View</a>
+              @if($diff < 60)
+              @php
+                $time=Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$order->created_at)->addHours(6)->toDateTimeString();
+                $counter++;
+              @endphp
+
+              <div class="purchase-item-download" >
+                  <a href="{{route('clientOrderView',$order->id)}}" style="margin-top:-20px" class="button primary">View</a>
                   <a href="{{route('cancelOrder',$order->order_number)}}" onclick="return confirm('Do you wish to cancel this order?')" style="margin-top:8px;color:white;background-color:red" class="button danger">Cancel</a>
+                  <a style="margin-top:8px;margin-bottom:10px;color:red;cursor:pointer" id="timer{{$counter}}"  class="button danger">{{$time}}</a>
               </div>
 
               @else
@@ -135,5 +149,50 @@
 </div>
 <!-- DASHBOARD CONTENT -->
 
+
+
+<script type="text/javascript">
+
+
+  function timer(count,cdd){
+
+    let counter=setInterval(()=>{
+      //count=count-1;
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = cdd - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+
+      document.getElementById('timer'+count.toString()).innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      // if (distance < 0) {
+      //   clearInterval(x);
+      //   document.getElementById(id).innerHTML = "EXPIRED";
+      // }
+    });
+  }
+
+var count=1;
+var total={!! $counter !!};
+for(count;count<=total;count++){
+
+  console.log('From Main: Counter:'+count);
+  var countDownDate = new Date(document.getElementById('timer'+count.toString()).innerHTML).getTime();
+  timer(count,countDownDate);
+
+
+}
+
+</script>
 
 @endsection

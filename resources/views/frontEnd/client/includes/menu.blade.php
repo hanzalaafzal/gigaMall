@@ -56,7 +56,7 @@
 		<!-- /DROPDOWN ITEM -->
 
 		<!-- DROPDOWN ITEM -->
-		@if(auth()->user()->permissions_id == 4 || auth()->user()->permissions_id == 5)
+		@if(auth()->user()->permissions_id == 4)
 		<li class="dropdown-item
 			<?php
 				if(Request::segment(2)=='order'){
@@ -83,6 +83,34 @@
                 <span class="sl-icon icon-settings"></span>
                 Reviews
             </a>
+		</li>
+		@elseif(auth()->user()->permissions_id == 5)
+		<li class="dropdown-item
+			<?php
+				if(Request::segment(2)=='order'){
+					echo 'active';
+				}
+			?>
+		">
+			<a href="{{route('affiliatorOrdersActive')}}">
+								<span class="sl-icon icon-settings"></span>
+								Orders
+						</a>
+		</li>
+		<!-- /DROPDOWN ITEM -->
+
+		<!-- DROPDOWN ITEM -->
+		<li class="dropdown-item
+			<?php
+				if(Request::segment(2)=='reviews'){
+					echo 'active';
+				}
+			?>
+		">
+			<a href="{{route('clientReviewsPending')}}">
+								<span class="sl-icon icon-settings"></span>
+								Reviews
+						</a>
 		</li>
 		@endif
 		<!-- /DROPDOWN ITEM -->
