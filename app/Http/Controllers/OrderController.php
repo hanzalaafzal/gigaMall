@@ -1002,7 +1002,7 @@ class OrderController extends Controller
       Order::where('order_number',$OrderId)->update([
           'status' => 'Refund',
       ]);
-      return redirect()->route('clientOrdersCanceled');
+      return redirect()->route('clientOrdersRefunded');
     }
 
     public function clientOrdersAll()
@@ -1012,6 +1012,7 @@ class OrderController extends Controller
         $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
         $count['all'] = Order::where('client_id', Auth::user()->id)->count();
         $count['canceled'] = Order::where('client_id', Auth::user()->id)->where('status', 'Canceled')->count();
+        $count['refund']=Order::where('client_id',Auth::user()->id)->where('status', 'Refund')->count();
         return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
     public function clientOrdersActive()
@@ -1021,6 +1022,7 @@ class OrderController extends Controller
         $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
         $count['all'] = Order::where('client_id', Auth::user()->id)->count();
         $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
+        $count['refund']=Order::where('client_id',Auth::user()->id)->where('status', 'Refund')->count();
 
         return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
@@ -1031,6 +1033,16 @@ class OrderController extends Controller
       $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
       $count['all'] = Order::where('client_id', Auth::user()->id)->count();
       $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
+      $count['refund']=Order::where('client_id',Auth::user()->id)->where('status', 'Refund')->count();
+      return view('frontEnd.client.orders.orders', compact('orders', 'count'));
+    }
+    public function clientOrdersRefunded(){
+      $orders = Order::where('client_id', Auth::user()->id)->where('status', 'Refund')->orderBy('id','desc')->get();
+      $count['active'] = Order::where('client_id', Auth::user()->id)->where('status', 'Active')->count();
+      $count['completed'] = Order::where('client_id', Auth::user()->id)->where('status', 'Completed')->count();
+      $count['all'] = Order::where('client_id', Auth::user()->id)->count();
+      $count['canceled']=Order::where('client_id',Auth::user()->id)->where('status', 'Canceled')->count();
+      $count['refund']=Order::where('client_id',Auth::user()->id)->where('status', 'Refund')->count();
       return view('frontEnd.client.orders.orders', compact('orders', 'count'));
     }
 

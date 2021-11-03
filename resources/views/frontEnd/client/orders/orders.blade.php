@@ -22,6 +22,7 @@
         <a href="{{route('clientOrdersAll')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersAll'){echo "dark-light";} ?>">All<small> ({{$count['all']}})</small></a>
         <a href="{{route('clientOrdersActive')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersActive'){echo "dark-light";} ?>">Active<small> ({{$count['active']}})</small></a>
           <a href="{{route('clientOrdersCanceled')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersCanceled'){echo "dark-light";} ?>">Canceled<small> ({{$count['canceled']}})</small></a>
+            <a href="{{route('clientOrdersRefunded')}}" class="button primary <?php if(Route::currentRouteName() == 'clientOrdersRefunded'){echo "dark-light";} ?>">Refund<small> ({{$count['refund']}})</small></a>
       </div>
    </div>
    <!-- /HEADLINE -->

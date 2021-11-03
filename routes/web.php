@@ -547,6 +547,7 @@ Route::Group(['middleware' => ['client']], function () {
     Route::get('client/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
     Route::get('client/order/completed', 'OrderController@clientOrdersCompleted')->name('clientOrdersCompleted');
     Route::get('client/order/canceled', 'OrderController@clientOrdersCanceled')->name('clientOrdersCanceled');
+    Route::get('client/order/refunded','OrderController@clientOrdersRefunded')->name('clientOrdersRefunded');
     Route::get('client/order/view/{id}', 'OrderController@clientOrderView')->name('clientOrderView');
     Route::get('client/order/complete/{id}', 'OrderController@clientMarkDelivered')->name('clientMarkDelivered');
     Route::get('downloadInvoice/{id}','OrderController@downloadInvoice');
@@ -598,6 +599,7 @@ Route::Group(['middleware' => ['vendor']], function () {
     Route::get('affiliator/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
     Route::get('affiliator/order/completed', 'OrderController@clientOrdersCompleted')->name('clientOrdersCompleted');
     Route::get('affiliator/order/canceled', 'OrderController@clientOrdersCanceled')->name('clientOrdersCanceled');
+    Route::get('client/order/refunded','OrderController@clientOrdersRefunded')->name('clientOrdersRefunded');
     Route::get('affiliator/order/view/{id}', 'OrderController@clientOrderView')->name('clientOrderView');
     Route::get('affiliator/order/complete/{id}', 'OrderController@clientMarkDelivered')->name('clientMarkDelivered');
     Route::get('downloadInvoice/{id}','OrderController@downloadInvoice');
