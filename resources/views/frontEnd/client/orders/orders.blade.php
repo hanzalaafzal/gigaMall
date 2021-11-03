@@ -110,6 +110,7 @@
               @if($diff < 60)
               @php
                 $time=Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$order->created_at)->addHours(6)->toDateTimeString();
+                
                 $counter++;
               @endphp
 

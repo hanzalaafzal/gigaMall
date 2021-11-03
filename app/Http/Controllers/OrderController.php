@@ -290,7 +290,7 @@ class OrderController extends Controller
     public function cash_on_delivery($subtotal, $shipping,Request $req){
 
 
-      dd(session()->all());
+      //dd(session()->all());
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
         // Calculate Prices
@@ -607,12 +607,12 @@ class OrderController extends Controller
 
         $ship_address = new OrderAddress();
         $ship_address->order_id = $order->id;
-        $ship_address->full_name = $req->ship_name;
-        $ship_address->phone = $req->ship_phone;
-        $ship_address->country = $req->ship_country;
-        $ship_address->address = $req->ship_address;
-        $ship_address->zip_code = $req->ship_zip;
-        $ship_address->city = $req->ship_city;
+        $ship_address->full_name = session('ship.name');
+        $ship_address->phone = session('ship.name');
+        $ship_address->country = session('ship.country');
+        $ship_address->address = session('ship.address');
+        $ship_address->zip_code = session('ship.zip');
+        $ship_address->city = session('ship.city');
         $ship_address->type = 'Shipping';
         $ship_address->save();
 
@@ -656,9 +656,8 @@ class OrderController extends Controller
         return redirect()->route('clientOrdersActive')->with('doneMessage', 'Order Placed!');
     }
 
-    public function store(Request $request)
-    {
-        dd($request->all());
+    public function store(Request $request){
+      //  dd($request->all());
          //echo "order store";die();
         $this->validate($request, [
             'billing_address' => 'required',
