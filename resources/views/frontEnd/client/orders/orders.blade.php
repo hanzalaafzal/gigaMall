@@ -65,6 +65,7 @@
 
         @php
           $counter=0;
+          $fiber_counter=0;
         @endphp
 
         @foreach($orders as $key=>$order)
@@ -103,16 +104,18 @@
             @php
                 $now=Carbon\Carbon::now();
                 $diff=$now->diffInMinutes($order->created_at);
+
+                $diff_days=$now->diffInDays($order->created_at);
             @endphp
 
             @if(Route::currentRouteName()=='clientOrdersActive')
 
               @if($diff < 60)
-              @php
-                $time=Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$order->created_at)->addHours(6)->toDateTimeString();
-                
-                $counter++;
-              @endphp
+                @php
+                  $time=Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$order->created_at)->addHours(6)->toDateTimeString();
+
+                  $counter++;
+                @endphp
 
               <div class="purchase-item-download" >
                   <a href="{{route('clientOrderView',$order->id)}}" style="margin-top:-20px" class="button primary">View</a>
@@ -123,6 +126,14 @@
               @else
               <div class="purchase-item-download">
                   <a href="{{route('clientOrderView',$order->id)}}" class="button primary">View</a>
+                  @if($diff_days < 7)
+                    @php
+                      $days=Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$order->created_at)->addDays(6)->addHours(6)->toDateTimeString();
+                      $fiber_counter++;
+                    @endphp
+                    <a href="{{route('refundOrder',$order->order_number)}}" onclick="return confirm('Do you wish to request refund for your order ?')" style="margin-top:8px;color:white;background-color:blue" class="button danger">Request Refund</a>
+                    <a style="margin-top:8px;margin-bottom:10px;color:blue;cursor:pointer" id="fiber{{$fiber_counter}}"  class="button danger">{{$days}}</a>
+                  @endif
               </div>
               @endif
 
@@ -154,6 +165,32 @@
 
 <script type="text/javascript">
 
+  function timer2(count,cdd){
+    let counter=setInterval(()=>{
+      //count=count-1;
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = cdd - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+
+      document.getElementById('fiber'+count.toString()).innerHTML =days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      // if (distance < 0) {
+      //   clearInterval(x);
+      //   document.getElementById(id).innerHTML = "EXPIRED";
+      // }
+    });
+  }
 
   function timer(count,cdd){
 
@@ -183,6 +220,9 @@
     });
   }
 
+var fiber_count=1;
+var fiber_total={!! $fiber_counter !!};
+
 var count=1;
 var total={!! $counter !!};
 for(count;count<=total;count++){
@@ -190,6 +230,15 @@ for(count;count<=total;count++){
   console.log('From Main: Counter:'+count);
   var countDownDate = new Date(document.getElementById('timer'+count.toString()).innerHTML).getTime();
   timer(count,countDownDate);
+
+
+}
+
+for(fiber_count;fiber_count<=fiber_total;fiber_count++){
+
+  console.log('From Main fiber: Counter:'+fiber_count);
+  var countDownDate2 = new Date(document.getElementById('fiber'+fiber_count.toString()).innerHTML).getTime();
+  timer2(fiber_count,countDownDate2);
 
 
 }

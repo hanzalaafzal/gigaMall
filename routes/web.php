@@ -541,6 +541,7 @@ Route::Group(['middleware' => ['client']], function () {
     Route::post('/store-order', 'OrderController@store')->name('storeOrder');
 
     Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
+    Route::get('/order/refund/{OrderId}','OrderController@refundOrder')->name('refundOrder');
 
     Route::get('client/order/active', 'OrderController@clientOrdersActive')->name('clientOrdersActive');
     Route::get('client/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');
@@ -591,6 +592,7 @@ Route::Group(['middleware' => ['vendor']], function () {
     Route::post('/address/update', 'UserDetailsController@updateAddress')->name('updateAddress');
 
     Route::get('/order/cancel/{OrderId}','OrderController@cancelOrder')->name('cancelOrder');
+    Route::get('/order/refund/{OrderId}','OrderController@refundOrder')->name('refundOrder');
 
     Route::get('affiliator/order/active', 'OrderController@clientOrdersActive')->name('affiliatorOrdersActive');
     Route::get('affiliator/order/all', 'OrderController@clientOrdersAll')->name('clientOrdersAll');

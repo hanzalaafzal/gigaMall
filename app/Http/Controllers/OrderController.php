@@ -998,6 +998,12 @@ class OrderController extends Controller
       ]);
       return redirect()->route('clientOrdersCanceled');
     }
+    public function refundOrder($OrderId){
+      Order::where('order_number',$OrderId)->update([
+          'status' => 'Refund',
+      ]);
+      return redirect()->route('clientOrdersCanceled');
+    }
 
     public function clientOrdersAll()
     {
