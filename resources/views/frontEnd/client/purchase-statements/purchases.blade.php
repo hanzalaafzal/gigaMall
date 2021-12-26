@@ -23,7 +23,7 @@
 
    <!-- PURCHASES LIST -->
     <div class="purchases-list">
-        <!-- PURCHASES LIST HEADER -->
+      <div style="width:1000px">
         <div class="purchases-list-header">
             <div class="purchases-list-header-date">
                 <p class="text-header small">Total Orders</p>
@@ -46,9 +46,12 @@
                 <p>${{$order['spend']}}</p>
             </div>
             <div class="purchase-item-date">
-                <p>${{$order['ave-price']}}</p>
+                <p>${{round($order['ave-price'],2)}}</p>
             </div>
         </div>
+      </div>
+        <!-- PURCHASES LIST HEADER -->
+
         <!--- Review Form --->
 
 

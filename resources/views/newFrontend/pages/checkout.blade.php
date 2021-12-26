@@ -255,11 +255,10 @@
                                     </a>
                                     <br>
                                     <br>
-                                    <a onclick="checkout('easy')">
+                                    <!-- <a onclick="checkout('easy')">
                                       <button type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay with Easy Paisa</button>
-                                    </a>
-                                    <br>
-                                    <br>
+                                    </a> -->
+  
                                     <a onclick="checkout('cod')">
                                       <button type="button" class="ps-btn ps-btn--fullwidth" name="button">Pay Cash on Delivery</button>
                                     </a>

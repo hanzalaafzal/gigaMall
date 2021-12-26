@@ -6087,7 +6087,7 @@ header {
   border: 1px solid #ebebeb;
   background-color: #fff;
   padding-bottom: 36px;
-  overflow: hidden; }
+  overflow-x: auto; }
   .purchases-list .pager-wrap {
     float: right;
     margin: 36px 30px 0 0; }
@@ -6209,74 +6209,8 @@ header {
   .purchases-list-header-recommend,
   .purchase-item-recommend {
     width: 19.9%; } }
-@media screen and (max-width: 935px) {
-  .purchase-item-details .item-preview {
-    padding-left: 0; }
-    .purchase-item-details .item-preview .product-preview-image {
-      display: none; }
 
-  .purchases-list-header-date,
-  .purchase-item-date {
-    width: 22%; }
 
-  .purchases-list-header-details,
-  .purchase-item-details {
-    width: 30%; }
-
-  .purchases-list-header-price,
-  .purchase-item-price {
-    display: none; }
-
-  .purchases-list-header-download,
-  .purchase-item-download {
-    width: 24%; }
-
-  .purchases-list-header-recommend,
-  .purchase-item-recommend {
-    width: 24%; } }
-@media screen and (max-width: 630px) {
-  .purchases-list .pager-wrap {
-    float: none;
-    margin-right: 0;
-    text-align: center; }
-    .purchases-list .pager-wrap .pager {
-      display: inline-block; }
-
-  .purchases-list-header-date,
-  .purchases-list-header-download,
-  .purchases-list-header-recommend {
-    display: inline-block; }
-
-  .purchases-list-header-details {
-    width: 100%;
-    text-align: center; }
-
-  .purchase-item {
-    height: auto;
-    padding: 24px 0; }
-    .purchase-item > * {
-      float: none;
-      width: 100%; }
-    .purchase-item .purchase-item-date {
-      padding: 0 0 10px; }
-      .purchase-item .purchase-item-date p {
-        text-align: center;
-        line-height: 1em; }
-    .purchase-item .purchase-item-details {
-      padding-top: 0; }
-      .purchase-item .purchase-item-details .item-preview {
-        text-align: center; }
-        .purchase-item .purchase-item-details .item-preview .description {
-          margin: 0 auto; }
-    .purchase-item .purchase-item-download {
-      padding-top: 16px; }
-    .purchase-item .purchase-item-recommend {
-      padding-top: 18px; }
-
-  .recommendation-wrap .recommendation-item {
-    margin-right: 20px; }
-    .recommendation-wrap .recommendation-item:last-child {
-      margin-right: 0; } }
 .pack-boxes {
   overflow: hidden;
   margin: 0 auto 26px; }

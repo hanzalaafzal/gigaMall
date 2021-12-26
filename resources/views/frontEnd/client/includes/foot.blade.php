@@ -2,7 +2,9 @@
 <!-- ToolTip -->
 <script src="{{url('/frontEnd/js/vendor/jquery.tooltipster.min.js')}}"></script>
 <!-- jQuery -->
-<script src="{{url('/frontEnd/js/vendor/jquery-3.1.0.min.js')}}"></script>
+
+
+
 <!-- XM Pie Chart -->
 <script src="{{url('/frontEnd/js/vendor/jquery.xmpiechart.min.js')}}"></script>
 <!-- Side Menu -->
@@ -13,3 +15,12 @@
 <script src="{{url('/frontEnd/js/formValidation.js')}}"></script>
 
 <script src="{{url('/frontEnd/js/tooltip.js')}}"></script>
+
+<!-- jQuery -->
+
+
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+
+</script>

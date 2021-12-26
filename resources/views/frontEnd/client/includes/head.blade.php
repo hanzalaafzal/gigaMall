@@ -1,14 +1,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+
+
+
 <link rel="stylesheet" href="{{url('/frontEnd/css/vendor/simple-line-icons.css')}}">
 <link rel="stylesheet" href="{{url('/frontEnd/css/style.css')}}">
 <link rel="stylesheet" href="{{url('/frontEnd/css/vendor/tooltipster.css')}}">
 <link rel="stylesheet" href="{{url('/frontEnd/css/vendor/magnific-popup.css')}}">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+
 <!-- jQuery -->
 <script src="{{url('/frontEnd/js/vendor/jquery-3.1.0.min.js')}}"></script>
 
+
 <!--fastselect-master-->
 <script src="https://rawgit.com/dbrekalo/attire/master/dist/js/build.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
+
 <link rel="stylesheet" href="{{url('/frontEnd/js/fastselect_master/fastselect.min.css')}}">
 <script src="{{url('frontEnd/js/fastselect_master/fastselect.standalone.js')}}"></script>
 
