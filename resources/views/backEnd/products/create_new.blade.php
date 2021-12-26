@@ -141,7 +141,7 @@
       var url =  {!! json_encode(url('/')) !!}+'/'+route+'/'+type_id;
       $('#category_id').empty();
       $.get(url, function(result){
-      	$('#category').css('display','unset');
+      	$('#category').css('display','block');
           $('#category_id').append('<option value="" disabled="" selected="">Choose Category</option>');
           $.each(result, function(key, value) {
                 $('#category_id').append('<option value=' + value['id'] + '>' + value['name'] + '</option>');
@@ -157,7 +157,7 @@
       var url =  {!! json_encode(url('/')) !!}+'/'+route+'/'+category_id;
       $('#sub_category_id').empty();
       $.get(url, function(result){
-      	$('#sub_category').css('display','unset');
+      	$('#sub_category').css('display','block');
           $('#sub_category_id').append('<option value="" disabled="" selected="">Choose Sub Category</option>');
           $.each(result, function(key, value) {
                 $('#sub_category_id').append('<option value=' + value['id'] + '>' + value['name'] + '</option>');

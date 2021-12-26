@@ -51,7 +51,7 @@
             <div class="form-group row">
                <label for="title_ar" class="col-sm-2 form-control-label">Choose Affilate Profit Percentage</label>
                <div class="col-sm-10">
-                   <input placeholder="" class="form-control has-value" id="slug" required="" value ="{{$category->profit_percentage}}" name="profit_percentage" type="number" >
+                   <input placeholder="" class="form-control has-value" step="any" type="number" id="slug" required="" value ="{{$category->profit_percentage}}" name="profit_percentage" >
                   <small>Number from 0-100</small>
                </div>
             </div>

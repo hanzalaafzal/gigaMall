@@ -445,6 +445,155 @@ class OrderController extends Controller
         return redirect()->route('clientOrdersActive')->with('doneMessage', 'Order Placed!');
     }
 
+    public function easyPaisaTokenGenerator($subtotal, $shipping,Request $req){
+      // Calculate Prices
+      $products_price = 0;
+      $shipping_price = 0;
+      $grand_price = 0;
+      foreach ($carts as $cart) {
+
+          $temp_prod = DB::table('products')->where('id',$cart->products->id)->first();
+          $temp_category_percent = DB::table('categories',$temp_prod->category_id)->pluck('profit_percentage')->first();
+          $p_price = $cart->products->price * $cart->quantity;
+          $products_price = $products_price + $p_price;
+          $shipping_price = $shipping_price + $cart->products->shipping_price;
+          $checker = DB::table('affiliators')->where('user_id',$cart['affiliator'])->where('product_id',$cart->products->id)->first();
+          if($checker){
+              $purchases = $checker->purchases + 1;
+              $p_price = $p_price * $temp_category_percent / 100;
+              $profit = $checker->profit + $p_price;
+              $temp_order_number = DB::table('orders')->orderBy('id','desc')->pluck('id')->first() + 1;
+              //dd($profit);
+              $pp = DB::table('wallets')->where('user_id',$checker->user_id)->pluck('amount')->first();
+              DB::table('wallets')->where('user_id',$checker->user_id)->update([
+                      'amount' => $pp + $p_price,
+                  ]);
+          }
+      }
+      $expDateChk = Carbon::now()->toDateString();
+      $checkCoupon = CartCoupon::where('user_id', Auth::user()->id)->first();
+      $OrignalCoupon = Coupon::where('id', $checkCoupon['coupon_id'])->where('expiry_date', '>=', $expDateChk)->where('coupon_status', 'Active')->first();
+      if (isset($OrignalCoupon->discount_amount)) {
+          $discountOfOrder = $OrignalCoupon->discount_amount;
+          $delCouponAfterRedeem = CartCoupon::where('user_id', Auth::user()->id)->first();
+          $delCouponAfterRedeem->delete();
+      }
+      if (isset($OrignalCoupon->discount_percentage)) {
+          $discountOfOrder = ($products_price * ($OrignalCoupon->discount_percentage) / 100);
+          $delCouponAfterRedeem = CartCoupon::where('user_id', Auth::user()->id)->first();
+          $delCouponAfterRedeem->delete();
+      }
+      $grand_price = $shipping_price + $products_price;
+
+      $shipping_ad=$req->shipping_address;
+      $billing=$req->billing_address;
+      $subtotal = $subtotal;
+      $shipping = $shipping;
+
+      $bill=array();
+      $bill['name']=$req->bill_name;
+      $bill['phone']=$req->bill_phone;
+      $bill['country']=$req->bill_country;
+      $bill['city']=$req->bill_city;
+      $bill['address']=$req->bill_address;
+      $bill['zip']=$req->bill_zip;
+
+      $ship=array();
+      $ship['name']=$req->ship_name;
+      $ship['phone']=$req->ship_phone;
+      $ship['country']=$req->ship_country;
+      $ship['city']=$req->ship_city;
+      $ship['address']=$req->ship_address;
+      $ship['zip']=$req->ship_zip;
+
+      session()->put('billing',$bill);
+      session()->put('shipping',$ship);
+
+      // $post_data=array(
+      //   "storeId" 			=> "14892",
+      //   "amount" 			=> 10.0,
+      //   "postBackURL" 		=> route('easy.paisa.postback'),
+      //   "orderRefNum" 		=> $this->create_order_number(),
+      //   "encryptedHashRequest" => "",				  	//Optional
+      //   "autoRedirect" 		=> "1",				  	//Optional
+      //   "paymentMethod" 	=> "OTC_PAYMENT_METHOD",	//Optional
+      // );
+      $dt=Carbon::now('Asia/Karachi')->format('Y-m-d\TH:i:s');
+      $ex=Carbon::now('Asia/Karachi')->addMinutes(20)->format('Ymd His');
+
+      //$post_data="storeId=14892&transactionAmount=10.0&paymentMethod=InitialRequest&timeStamp=".$dt."&tokenExpiry=".$ex."&orderId=".$this->create_order_number()."&merchantPaymentMethod=&"
+  //  dd($ex);
+      $post_data=array(
+        "storeId"	=> "14892",
+        "transactionAmount"	=> "10.0",
+        "mobileAccountNo"=> "03481704079",
+        "transactionType" => "InitialRequest",
+        "tokenExpiry" => $ex,
+        "timeStamp" => $dt,
+        "postBackURL" => route('easy.paisa.postback'),
+        "orderId"	=> $this->create_order_number(),
+        "merchantPaymentMethod" 	=> "OTC_PAYMENT_METHOD",	//Optional
+      );
+
+      $sortedArray=$post_data;
+      ksort($sortedArray);
+      $sorted_string = '';
+
+      $i=1;
+      foreach($sortedArray as $key => $value){
+        if(!empty($value))
+        {
+          if($i == 1)
+          {
+            $sorted_string = $key. '=' .$value;
+          }
+          else
+          {
+            $sorted_string = $sorted_string . '&' . $key. '=' .$value;
+          }
+        }
+        $i++;
+      }
+      $cipher = "aes-128-ecb";
+      $crypttext = openssl_encrypt($sorted_string, $cipher, "G4TQH4V8FXJ6H89W", OPENSSL_RAW_DATA);
+      $HashedRequest = Base64_encode($crypttext);
+      $post_data['encryptedHashRequest'] =  $HashedRequest;
+      $sortedArray=$post_data;
+      ksort($sortedArray);
+      $sorted_string = '';
+
+      $i=1;
+      foreach($sortedArray as $key => $value){
+        if(!empty($value))
+        {
+          if($i == 1)
+          {
+            $sorted_string = $key. '=' .$value;
+          }
+          else
+          {
+            $sorted_string = $sorted_string . '&' . $key. '=' .$value;
+          }
+        }
+        $i++;
+      }
+      return redirect()->to('https://easypaystg.easypaisa.com.pk/tpg/?'.$sorted_string);
+      dd($sorted_string);
+      //return view('newFrontend.easy_pay_form',compact('post_data'));
+
+
+    }
+
+    public function easyPaisaPostBack(Request $req){
+      $post_data['auth_token']=$req->auth_token;
+      return view('newFrontend.easy_pay_confirm',compact('post_data'));
+    }
+
+    public function easyPaisaConfirm(Request $req){
+      dd('here');
+      //return redirect()->route('store.order-process',[$req->orderRefNumber,$req->paymentToken]);
+    }
+
     public function storeBank($subtotal, $shipping,Request $req){
 
 
@@ -471,6 +620,9 @@ class OrderController extends Controller
 
         session()->put('billing',$bill);
         session()->put('shipping',$ship);
+
+
+
         // return view('frontEnd.orders.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
         return view('newFrontend.pages.bank_payment',compact('subtotal','shipping','shipping_ad','billing'));
     }

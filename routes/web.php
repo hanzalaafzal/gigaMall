@@ -534,6 +534,9 @@ Route::Group(['middleware' => ['client']], function () {
     Route::post('withdraw_amount','OrderController@post_withdraw_amount');
 
 
+    Route::get('/easy_paisa_token/{subtotal}/{shipping}/{shipping_ad}/{billing_ad}','OrderController@easyPaisaTokenGenerator')->name('easy.paisa.token');
+    Route::get('/easy_paisa_post_back','OrderController@easyPaisaPostBack')->name('easy.paisa.postback');
+    Route::get('/easy_paisa_confirm','OrderController@easyPaisaConfirm')->name('easy.paisa.confirm');
 
     Route::post('/cash_on_delivery/{subtotal}/{shipping}','OrderController@cash_on_delivery')->name('cash_on_delivery');
     Route::get('/bank_payment/{subtotal}/{shipping}/{shipping_ad}/{billing_ad}','OrderController@storeBank')->name('bank_payment');

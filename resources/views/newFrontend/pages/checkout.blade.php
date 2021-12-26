@@ -320,7 +320,7 @@
 
 
     if(type=='easy'){
-      $('#checkForm').attr('action',`{!! route("bank_payment",[$subtotal,$ship_price,1,1]) !!}`)
+      $('#checkForm').attr('action',`{!! route("easy.paisa.token",[$subtotal,$ship_price,1,1]) !!}`)
       $('#checkForm').attr('method','get')
       $('#checkForm').submit();
     }else if(type=='cod'){

@@ -149,7 +149,8 @@ $urlAfterRoot = substr($fullPagePath, strpos($fullPagePath, env('BACKEND_PATH'))
                     </li>
 
                     <li>
-                        <a href="{{route('productCreateadmin')}}">
+                      <a onclick="location.href='{{route('productCreateadmin')}}'">
+                    
                           <span class="nav-icon">
                             <i class="material-icons">&#xe3fc;</i>
                           </span>
