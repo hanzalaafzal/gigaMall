@@ -3511,6 +3511,8 @@ header {
     .section .content .headline h4, .dashboard-content .headline h4 {
       float: none;
       text-align: center; }
+      .section .content .headline h4, .dashboard-content .headline-status {
+        display:none; }
     .section .content .headline form, .dashboard-content .headline form {
       float: none;
       width: 410px;

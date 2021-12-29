@@ -43,10 +43,10 @@
                 <p>{{$order['total']}}</p>
             </div>
             <div class="purchase-item-date">
-                <p>${{$order['spend']}}</p>
+                <p>{{$order['spend']}}</p>
             </div>
             <div class="purchase-item-date">
-                <p>${{round($order['ave-price'],2)}}</p>
+                <p>{{round($order['ave-price'],2)}}</p>
             </div>
         </div>
       </div>
